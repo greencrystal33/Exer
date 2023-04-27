@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css浮动</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+        }
+
+        .div {
+            /* 改为行内块，div之间的换行会转换为一个空格显示 */
+            display: inline-block;
+        }
+
+        .one {
+            background-color: pink;
+        }
+
+        .two {
+            background-color: skyblue;
+        }
+
+        .img {
+            float: left;
+        }
+
+        .f1 {
+            background-color: pink;
+            float: left;
+        }
+
+        .f2 {
+            background-color: skyblue;
+            float: left;
+        }
+
+        .b1 {
+            background-color: pink;
+            float: left;
+            margin-top: 50px;
+        }
+
+        .b2 {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            float: left;
+            text-align: center;
+            /* 因为浮动，水平居中不生效 */
+            margin: 0 auto;
+         }
+
+        .b3 {
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+            /* text-align: center;
+            margin: 0 auto; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div one"></div>
+    <div class="div two"></div>
+
+    <h2>浮动的作用</h2>
+    <h3>1、图文环绕</h3>
+    <img class="img" src="../images//sprite.png" width="100px" alt="">
+    图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试图文环绕效果测试
+
+    <h3>2、网页布局</h3>
+    <!-- 用float div换行就不会有空格 -->
+    <div class="f1"></div>
+    <div class="f2"></div>
+
+    <div></div>
+
+    <h2>浮动的特点</h2>
+    <!-- 浮动的标签：顶对齐 -->
+    <!-- 在一行排列，宽高生效：浮动后的标签具备行内块特点 -->
+
+    <div class="b1">one</div>
+    <div class="b2">two</div>
+    <div class="b3">three</div>
+    <img src="../images/float1.png" alt="">
+
+</body>
+
+</html>

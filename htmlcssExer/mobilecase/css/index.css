@@ -1,0 +1,174 @@
+/* 清除默认样式的代码 */
+/* 去除常见标签的内外边距 */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+input {
+  margin: 0;
+  padding: 0;
+}
+/* 内减模式 */
+* {
+  box-sizing: border-box;
+}
+html {
+  width: 100%;
+  display: block;
+}
+/* 设置网页统一的字体大小、行高、字体系列相关属性 */
+body {
+  font: 16px/1.5 "Helvetice Neue", Helvetice, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+}
+/* 去除列表默认样式 */
+ul,
+ol {
+  list-style: none;
+}
+/* 去除默认的倾斜效果 */
+em,
+i {
+  font-style: normal;
+}
+/* 去除超链接默认的下划线，默认文字颜色 */
+a {
+  text-decoration: none;
+  color: #333;
+}
+/* 垂直居中，去除img下默认间隙 */
+img {
+  width: 100%;
+  vertical-align: middle;
+}
+input {
+  border: none;
+  outline: none;
+  color: #26aa99;
+}
+/* 左浮动 */
+.fl {
+  float: left;
+}
+/* 右浮动 */
+.fr {
+  float: right;
+}
+.clearfix::before,
+.clearfix::after {
+  content: '';
+  display: table;
+}
+.clearfix::after {
+  clear: both;
+}
+body {
+  background-color: #F0F0F0;
+}
+.main {
+  padding-bottom: 1.66666667rem;
+}
+.main .banner {
+  height: 5.2rem;
+}
+.main .title {
+  height: 1.33333333rem;
+  line-height: 1.33333333rem;
+  padding-left: 0.5rem;
+}
+.main .title h4 {
+  font-size: 0.46666667rem;
+  color: #3c3c3c;
+}
+.main .item {
+  margin-bottom: 0.33333333rem;
+}
+.main .item .pic {
+  position: relative;
+  height: 5.2rem;
+}
+.main .item .pic img {
+  height: 100%;
+}
+.main .item .pic i {
+  position: absolute;
+  top: 0.43333333rem;
+  right: 0.6rem;
+  font-size: 0.8rem;
+  color: #fff;
+}
+.main .item .pic .active {
+  position: absolute;
+  top: -0.43333333rem;
+  left: 0.1rem;
+  width: 0.96666667rem;
+  height: 0.96666667rem;
+  background-image: url(../uploads/new.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.main .item .pic .active.end {
+  background-image: url(../uploads/end.png);
+}
+.main .item .txt {
+  padding: 0.33333333rem 0.5rem;
+  background-color: #fff;
+}
+.main .item .txt .top {
+  display: flex;
+  justify-content: space-between;
+}
+.main .item .txt .top h5 {
+  flex: 1;
+  font-size: 0.5rem;
+  color: #3c3c3c;
+}
+.main .item .txt .top p {
+  margin-left: 0.16666667rem;
+  width: 1rem;
+  font-size: 0.5rem;
+  color: orangered;
+}
+.main .item .txt .bottom {
+  display: flex;
+  margin-top: 0.33333333rem;
+}
+.main .item .txt .bottom p {
+  margin-right: 0.5rem;
+  font-size: 0.36666667rem;
+  color: #999;
+}
+.main .item .txt .bottom p i {
+  font-size: 0.36666667rem;
+}
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 1.66666667rem;
+  background-color: #FECA49;
+  text-align: center;
+}
+footer a {
+  font-size: 0.36666667rem;
+  color: #d78b09;
+}
+footer a .iconfont {
+  font-size: 0.8rem;
+}
+footer a.current {
+  color: #fff;
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件和操作元素</title>
+    <style>
+        div {
+            width: 300px;
+            height: 30px;
+            line-height: 30px;
+            color: coral;
+            background-color: blanchedalmond;
+        }
+
+        input {
+            color: #999;
+        }
+
+        .input1 {
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>事件三要素</h3>
+    <ul>
+        <li>事件源: 事件被触发的对象。如按钮</li>
+        <li>事件类型: 如何触发, 什么事件</li>
+        <li>事件处理程序: 通过函数赋值的方式, 完成什么事</li>
+    </ul>
+
+    <br>
+    <button id="btn">唐伯虎</button>
+    <button id="btn1">更新时间</button>
+    <div>123</div>
+    <div id="div2">123</div>
+    <button id="btn2">请输入</button>
+    <input type="text" value="请输入内容">
+    <br>
+    <img src="../images/event.png" alt="">
+    <script>
+        console.log('-----------事件----------');
+        var btn = document.getElementById('btn');
+        console.log(btn);
+
+        btn.onclick = function () {
+            alert('点秋香');
+        }
+        var div = document.querySelector('div');
+        div.onclick = function () {
+            console.log(div.innerText);
+        }
+        var date = new Date();
+
+        var btn1 = document.getElementById('btn1');
+        btn1.onclick = function () {
+            date = new Date();
+            div.innerText = date.toLocaleString();
+            div2.innerHTML = '<strong>今天是：</strong>' + date.toLocaleString();
+        }
+        // 元素可以不用添加事件
+        div.innerText = date.toLocaleString();
+        var div2 = document.getElementById('div2');
+        div2.innerHTML = '<strong>今天是：</strong>' + date.toLocaleString();
+        console.log(div2.innerHTML);
+        // innerText: 去除html、空格、换行，innerHTML均保留
+
+        var h = date.getHours();
+        if (h < 12) {
+            div2.innerHTML = '<strong>上午好：</strong>' + date.toLocaleString();
+        }
+        else if (h < 18) {
+            div2.innerHTML = '<strong>下午好：</strong>' + date.toLocaleString();
+        }
+        else {
+            div2.innerHTML = '<strong>晚上好：</strong>' + date.toLocaleString();
+        }
+       
+        console.log('-----------修改表单元素----------');
+        // 表单元素属性：type, value, checked, selected, disabled
+        // innerHtml对表单元素不起效，只对div等普通标签里的内容，表单元素用value来修改
+        var btn2 = document.getElementById('btn2');
+        console.log(btns);
+        var btns = document.querySelectorAll('button');
+        // var btn2 = btns[2];
+        console.log(btn2);
+        var input = document.querySelector('input');
+        btn2.onclick = function () {
+            input.value = 'hello';
+            // btn2.disabled = true;
+            this.disabled = true; //this指向事件函数的调用者：btn2
+        }
+
+        // 获得焦点
+        input.onfocus = function () {
+            if (this.value == '请输入内容') { this.value = ''; }
+            this.style.color = '#333';
+        }
+        // 失去焦点
+        input.onblur = function () {
+            if (this.value == '') { this.value = '请输入内容'; }
+            this.style.color = '#999';
+        }
+
+        
+
+    </script>
+</body>
+
+</html>

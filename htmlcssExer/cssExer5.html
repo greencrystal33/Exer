@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示模式</title>
+    <style>
+        span {
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+        }
+
+        input {
+            width: 300px;
+            height: 50px;
+        }
+
+        .block {
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+            /* display: inline-block; */
+            /* display: inline; */
+        }
+
+      
+
+        
+    </style>
+</head>
+
+<body>
+    <h3>块级元素</h3>
+    <!-- 独占一行，父级宽度的100%，设置宽高都生效 -->
+    <div class="block">111</div><br>
+    <div class="block">222</div>
+
+    <h3>行内元素</h3>
+    <!-- 代表标签：a span b u i s strong ins em del -->
+    <!-- 一行可以显示多个，宽高默认由内容撑开，不可以设置宽高 -->
+    <span>span1</span>
+    <span>span2</span>
+
+    <h3>行内块元素</h3>
+    <!-- 代表标签：input textarea button select -->
+    <!-- 一行可以显示多个，可以设置宽高 -->
+    <input type="text" placeholder="aaa"> <input type="text" placeholder="bbb">
+
+    <h3>元素显示模式转换</h3>
+    <!-- 语法 display:block inline-block inline -->
+
+    <h3>html嵌套规范</h3>
+    <img src="../images/web3.png" alt="">
+    <!-- 语法不报错，但浏览器会自动纠错 -->
+
+    
+</body>
+
+</html>

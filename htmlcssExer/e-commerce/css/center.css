@@ -1,0 +1,262 @@
+.content {
+    padding: 30px 0 85px;
+    background-color: #f6f6f6;
+}
+
+.content .wrapper {
+    display: flex;
+}
+
+.pannel {
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+.content .aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 227px;
+    min-height: 500px;
+    margin-right: 18px;
+}
+
+.user_msg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* border-bottom: 1px solid transparent; */
+    margin-bottom: 2px;
+    /* background-color: #fff; */
+}
+
+.user_msg .pic {
+    margin: 30px 30px 0px 30px;
+    margin-bottom: 8px;
+    width: 80px;
+    height: 80px;
+    /* background-color: pink; */
+    border-radius: 50%;
+    background-image: url(../../../images/user.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+}
+
+.user_msg i {
+    color: #f5c164;
+    font-size: 25px;
+}
+
+.user_msg h5 {}
+
+.menu {
+    width: 100%;
+    /* min-height: 400px; */
+    /* background-color: pink; */
+}
+
+.account,
+.exchange {
+    position: relative;
+    padding: 30px 0 10px 50px;
+    min-height: 200px;
+    border-bottom: 2px solid #f6f6f6;
+    /* background-color: pink; */
+}
+
+.account h4,
+.exchange h4 {
+    margin-bottom: 15px;
+    padding-left: 15px;
+}
+
+.account li,
+.exchange li {
+    position: relative;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    font-size: 12px;
+    /* cursor: pointer; */
+    /* background-color: pink; */
+}
+
+.active {
+    color: #27ad97;
+}
+
+.account .active::before,
+.exchange .active::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateY(6px);
+    display: inline-block;
+    content: '';
+    width: 5px;
+    height: 5px;
+    background-color: #27ad97;
+    border-radius: 50%;
+}
+
+.exchange {
+    min-height: 200px;
+    /* background-color: palegreen; */
+}
+
+.content .main {
+    flex: 1;
+    min-height: 500px;
+    /* background-color: skyblue; */
+}
+
+.overview {
+    display: flex;
+    margin-bottom: 18px;
+    padding: 20px 0;
+    height: 132px;
+    background-color: #fff;
+}
+
+.overview div {
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+.overview div:first-child {
+    border-right: 1px solid #f4f4f4;
+}
+
+.overview div a {
+    /* 用以下会把边上空白也包进去，都可以点击链接了，改为父级justify-content */
+    /* flex: 1; */
+}
+
+.overview .iconfont {
+    font-size: 25px;
+    /* font-weight: normal; */
+}
+
+.overview span {
+    font-size: 25px;
+    color: orangered;
+}
+
+.overview div p {
+    font-size: 14px;
+}
+
+.rightpannel {
+    padding: 28px 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    font-size: 14px;
+}
+
+.pannel_title {
+    display: flex;
+    height: 45px;
+    line-height: 45px;
+    justify-content: space-between;
+}
+
+.pannel_title h4 {
+    font-size: 22px;
+    font-weight: 400;
+    color: #333;
+}
+
+.pannel_title a {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #999;
+}
+
+.orders .pannel_content li {
+    display: flex;
+    /* flex: 1; */
+    justify-content: space-evenly;
+    align-items: center;
+    height: 137px;
+    margin-bottom: 20px;
+    border: 1px solid #f4f4f4;
+}
+
+.orders .pannel_content li:last-child {
+    margin-bottom: 0;
+}
+
+.orders li .goods {
+    display: flex;
+    padding: 10px 0 10px 12px;
+    flex: 1;
+    align-items: center;
+    margin-right: 120px;
+    /* background-color: pink; */
+}
+
+.orders li .goods img {
+    height: 107px;
+}
+
+.goods .txt {
+    flex: 1;
+    /* 溢出的时候显示省略号 */
+    /* 因为弹性盒子的尺寸可以被内容撑开，不换行的文字可以撑开这个文字的尺寸 */
+    width: 0;
+    /* background-color: pink; */
+}
+
+/* 单行溢出隐藏，显示... */
+.orders .goods .txt h5 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.orders .goods .txt p{
+    color: #999;
+}
+
+.orders li .status {
+    width: 120px;
+    /* line-height: 137px; */
+    /* align-self: center; */
+    color: orangered;
+}
+
+.orders li .pay {
+    width: 200px;
+}
+
+.orders li .pay p:first-child {
+    color: orangered;
+}
+
+.orders li .action {
+    width: 180px;
+}
+
+.orders li .common {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.orders li .action a:first-child {
+    margin-bottom: 10px;
+    /* 弹性布局，在能容纳的情况下，a宽高直接生效 */
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background-color: #5eb69c;
+    border: 1px solid #286e58;
+    border-radius: 2px;
+    color: #fff;
+}

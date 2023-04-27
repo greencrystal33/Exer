@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>样式基础</title>
+    <!-- 通常css的位置 (内嵌式)-->
+    <style>
+        /* 选择器: 查找标签 */
+        p {
+            color: rgb(209, 45, 45);
+            font-size: 30px;
+            background-color: skyblue;
+            width: 200px;
+            height: 100px;
+            /* 字体粗细，关键字nomal(400),bold(700) ; 纯数字100-900之间*/
+            font-weight: 800;
+            /* 字体是否倾斜 nomal/italic */
+            font-style: italic;
+            /* 字体名 windows默认 微软雅黑，MacOS默认苹方*/
+            /* 多个字体，按照顺序使用该电脑安装的字体显示 */
+            font-family: 微软雅黑, 黑体, sans-serif;
+            /* 层叠样式，后出现的覆盖前面的 */
+            color: pink;
+
+        }
+
+        .multi {
+            /* font属性连写：复合属性 */
+            /* 取值：font:style weight size family */
+            /* 只能省略前两个 */
+            font: italic 700 66px 宋体;
+        }
+
+        .one {
+            color: blue;
+        }
+
+        .size {
+            font-size: 66px;
+        }
+
+        #two {
+            background-color: bisque;
+        }
+
+        * {
+            color: red;
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+    <!-- css外联式，通过link引入 样式表-->
+    <link rel="stylesheet" href="../assets/css/exer.css">
+</head>
+
+<body>
+    <p>内嵌式样式</p>
+
+    <div>外联样式表</div>
+    <br>
+    <span style="color: royalblue;font-size: 35px;background-color: rgb(238, 162, 209);">行内式样式</span>
+
+    <h3>基础选择器</h3>
+    <h4>标签选择器</h4>
+    <h4>类选择器</h4>
+    <!-- 类名由数字、字母、下划线、中划线组成，但不能以数字和中划线开头 -->
+    <div class="one">类选择器</div>
+    <span class="one">也是one类</span>
+    <br>
+    <span class="one size">多个类选择器</span>
+
+    <h4>id选择器</h4>
+    <span id="two">id选择器</span>
+    <!-- <span id="two">id选择器</span>  -->
+    <!-- 多个标签使用同一个id不符合规范 -->
+
+    <h4>通配符选择器</h4>
+    <!-- 结构：*{css属性名: 属性值} -->
+    <!-- 极少使用，一般用来清楚默认标签中的margin和padding -->
+
+    <span class="multi">font复合属性</span>
+    <img src="../images/字体.png" alt="">
+
+   
+</body>
+
+</html>

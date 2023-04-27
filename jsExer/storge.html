@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地存储</title>
+</head>
+
+<body>
+    <button>add</button>
+    <button>get</button>
+    <button>del</button>
+    <button>clear</button>
+
+    <script>
+        var btns = document.querySelectorAll('button');
+       
+        // 会话存储：sessionStorage
+        // 生命周期为关闭浏览器窗口，仅限本页面 window.sessionStorage
+        // btns[0].addEventListener('click', function () {
+        //     sessionStorage.setItem('test', 123);
+        //     sessionStorage.setItem('item', 123);
+        // });
+        // btns[1].addEventListener('click', function () {
+        //     var a = sessionStorage.getItem('test');
+        //     console.log(a);
+        // });
+        // btns[2].addEventListener('click', function () {
+        //     sessionStorage.removeItem('test');
+        // });
+        // // 清除所有
+        // btns[3].addEventListener('click', function () {
+        //     sessionStorage.clear();
+        // });
+
+        // 本地存储：localStorage
+        // 生命周期为永久生效，同一个浏览器都有效
+        btns[0].addEventListener('click', function () {
+            localStorage.setItem('test', 123);
+            localStorage.setItem('item', 123);
+        });
+        btns[1].addEventListener('click', function () {
+            var a = localStorage.getItem('test');
+            console.log(a);
+        });
+        btns[2].addEventListener('click', function () {
+            localStorage.removeItem('test');
+        });
+        // 清除所有
+        btns[3].addEventListener('click', function () {
+            localStorage.clear();
+        });
+    </script>
+</body>
+
+</html>

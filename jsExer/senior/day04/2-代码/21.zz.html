@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式练习</title>
+    <style>
+        span {
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        .right {
+            color: green;
+        }
+        
+        .wrong {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions">MDN 正则表达式</a>
+    <br>
+    <input type="text" class="uname"> <span>请输入</span>
+    <script>
+        var regExp = new RegExp(/123/);
+        console.log(regExp);
+
+        var rg = /123/;
+        console.log(rg);
+
+        console.log(123456, rg.test(123456));
+
+        var rg1 = /^abc/;
+        console.log(rg1);
+        console.log("aabcd", rg1.test('aabcd'));
+        console.log("abcd", rg1.test('abcd'));
+
+        var rg2 = /^abc$/;  //精确匹配
+        console.log(rg2);
+        console.log("abc", rg2.test('abc'));
+        console.log("abcd", rg2.test('abcd'));
+        console.log("abbcd", rg2.test('abbcd'));
+
+        console.log("/[abc]/.test('andy')", /[abc]/.test('andy'));
+
+        var rg3 = /^[abc]$/;
+        console.log(rg3);
+        console.log('a', rg3.test("a"));
+        console.log('b', rg3.test("b"));
+        console.log('c', rg3.test("c"));
+        console.log('abc', rg3.test("abc"));
+        var rg4 = /^[a-zA-Z0-9_-]$/;
+        console.log(rg4);
+        console.log('a', rg4.test("a"));
+        console.log('B', rg4.test("B"));
+        console.log(1, rg4.test(1));
+        console.log('g', rg4.test("g"));
+        console.log('$', rg4.test("$"));
+
+        var rg5 = /^[^a-zA-Z0-9_-]$/;
+        console.log(rg5);
+        console.log('a', rg5.test("a"));
+        console.log('B', rg5.test("B"));
+        console.log(1, rg5.test(1));
+        console.log('g', rg5.test("g"));
+        console.log('$', rg5.test("$"));
+
+        // 座机号码： 010-12345678 或0571-1234567
+        // var telReg =/^0\d{2}-\d{8}|0\d{3}-\d{7}$/;
+        // 手机号码
+        var telReg =/^1\d{10}$/;
+
+        var uname = document.querySelector('.uname');
+        var span = document.querySelector('span');
+        uname.onblur = function() {
+            if (telReg.test(this.value)) {
+                console.log('正确的');
+                span.className = 'right';
+                span.innerHTML = '格式输入正确';
+            } else {
+                console.log('错误的');
+                span.className = 'wrong';
+                span.innerHTML = '格式输入不正确';
+            }
+        }
+    </script>
+</body>
+
+</html>

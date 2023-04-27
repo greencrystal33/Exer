@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位</title>
+    <style>
+        .box {
+            /*  相对定位特点：快捷por
+                1.占有原来的位置 (没有脱标)
+                2.仍然具有标签原油的显示模式特点
+                3.改变位置参照自己原来的位置
+            */
+            position: relative;
+            left: 200px;
+            top: 50px;
+            /* 左右都写了，以left为准，上下都写以top为准 */
+            /* 都不写则为标签原来的位置 */
+            right: 200px;
+
+            /* 绝对定位：快捷poa
+                先找已经定位的父级(广义，父级没有找爷爷)，如果有这样的父级就以这个父级为参照物定位
+                有父级但父级没有定位，以浏览器窗口为参照进行定位
+                特点:
+                1.脱标，不占位
+                2.改变标签的显示模式特点：具备行内块特点(在一行共存，且宽高生效)
+            */
+            /* position: absolute; */
+
+
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .father {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+        }
+
+        .son {
+            /* 常用：
+                父级相对定位；子级绝对定位--子绝父相
+                父级为广义，父级没有找爷爷，一直向上找
+            */
+            /* position: relative; */
+
+            width: 300px;
+            height: 300px;
+            background-color: skyblue;
+        }
+
+        .grandson {
+            position: absolute;
+            right: 20px;
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+
+        .centerfather {
+            position: relative;
+            height: 600px;
+            background-color: #ccc;
+        }
+
+        .center {
+            position: absolute;
+            /* 绝对定位的盒子不能使用margin: 0 auto居中 */
+            /* margin: 0 auto; */
+            left: 50%;
+            /* margin-left: -150px; */
+
+            top: 50%;
+            /* margin-top: -150px; */
+
+            /* 位移：自己宽度高度的一半 */
+            transform: translate(-50%, -50%);
+
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+        }
+
+        .banner {
+            position: relative;
+            margin: 0 auto;
+            height: 727px;
+            width: 1024px;
+            background: #ccc;
+        }
+
+        .mask {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .fix {
+            position: fixed;
+            left:50%;
+            bottom: 0;
+            transform: translate(-50%,0);
+            /* 固定定位：
+                1.脱标-不占位置
+                2.改变位置参考浏览器窗口
+                3.具备行内块特点
+            */
+            width: 300px;
+            height: 100px;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="../images/locate.png" alt="">
+        <img src="../images/locate2.png" alt="">
+    </div>
+
+    <hr>
+    <h3>相对定位</h3>
+    <div>
+        <p>一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十</p>
+        <p>一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十</p>
+        <p>一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十</p>
+        <p>一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十</p>
+        <p>一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十</p>
+        <div class="box">box</div>
+        <p>一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十</p>
+        <p>一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十</p>
+        <p>一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十</p>
+        <p>一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十</p>
+        <p>一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十</p>
+    </div>
+
+    <hr>
+    <h3>绝对定位</h3>
+    <div class="father">
+        <div class="son">
+            <div class="grandson"></div>
+        </div>
+    </div>
+
+    <hr>
+    <h3>定位居中</h3>
+    <div class="centerfather">
+        <div class="center"></div>
+    </div>
+
+    <hr>
+    <h3>banner遮罩效果</h3>
+    <div class="banner">
+        <img src="../images/bg.jpg" alt="">
+        <div class="mask">111</div>
+    </div>
+
+    <div>
+        <hr>
+        <h3>固定定位</h3>
+        <ol>
+            <li>脱标-不占位置</li>
+            <li>改变位置参考浏览器窗口</li>
+            <li>具备行内块特点</li>
+        </ol>
+        
+        <div class="fix"></div>
+    </div>
+
+</body>
+
+</html>

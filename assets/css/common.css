@@ -1,0 +1,236 @@
+/* 各个页面相同的样式，比如版头 尾部等 */
+
+/* 版心 */
+.wrapper {
+    width: 1240px;
+    margin: 0 auto;
+}
+
+/* 快捷导航 */
+.shortcut {
+    height: 52px;
+    background-color: #333;
+}
+
+.shortcut {
+    height: 52px;
+    /* background-color: pink; */
+}
+
+.shortcut ul {
+    float: right;
+}
+
+.shortcut li {
+    float: left;
+    line-height: 52px;
+}
+
+.shortcut a {
+    padding: 0 16px;
+    border-right: 1px solid #ccc;
+    color: white;
+}
+
+.shortcut li:last-child a {
+    border-right: 0;
+}
+
+.shortcut span {
+    display: inline-block;
+    margin-right: 8px;
+    /* span行内元素，宽高不生效，需要改为行内块 */
+    width: 24px;
+    height: 24px;
+    line-height: 52px;
+    vertical-align: middle;
+    background-image: url(../../uploads/taobao.png);
+    background-position: 0 1px;
+}
+
+/* 头部 */
+.header {
+    margin: 30px auto;
+    height: 70px;
+}
+
+.logo {
+    float: left;
+    margin-left: 20px;
+    margin-right: 40px;
+    width: 70px;
+    height: 70px;
+    /* background-color: #ccc; */
+}
+
+.logo a {
+    display: block;
+    width: 70px;
+    height: 70px;
+    background-image: url(../../uploads/logo-cool2.png);
+    background-size: contain;
+    /* 让h1的文字看不见 */
+    font-size: 0;
+}
+
+.nav {
+    float: left;
+    margin-right: 34px;
+    height: 70px;
+    line-height: 70px;
+    /* background-color: pink; */
+}
+
+.nav ul li {
+    float: left;
+    margin-right: 48px;
+}
+
+.nav li a {
+    padding-bottom: 7px;
+
+}
+
+.nav li a:hover {
+    color: #27ba9b;
+    border-bottom: 1px solid #27ba9b;
+}
+
+.search {
+    position: relative;
+    float: left;
+    margin-top: 24px;
+    margin-left: 34px;
+    width: 172px;
+    height: 30px;
+    /* background-color: skyblue; */
+    border-bottom: 2px solid #e7e7e7;
+}
+
+.search input {
+    padding-left: 30px;
+    width: 172px;
+    height: 28px;
+}
+
+.search input::placeholder {
+    font-style: 14px;
+    color: #ccc;
+}
+
+.search span {
+    position: absolute;
+    left: 2px;
+    top: 5px;
+    width: 18px;
+    height: 18px;
+    /* background-color: pink; */
+    background-image: url(../../uploads/search.png);
+    background-size: contain;
+}
+
+.car {
+    position: relative;
+    float: left;
+    margin-left: 20px;
+    margin-top: 28px;
+    width: 23px;
+    height: 23px;
+    /* background-color: orange; */
+    background-image: url(../../uploads/car.png);
+    background-size: contain;
+}
+
+.car span {
+    /* display: inline-block; */
+    /* 绝对定位的元素本身具备行内块特点，宽高可生效 */
+    position: absolute;
+    right: -13px;
+    top: -8px;
+    width: 20px;
+    height: 15px;
+    border-radius: 8px;
+    background-color: red;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+}
+
+.footer {
+    height: 342px;
+    background-color: #333;
+}
+
+.footer .wrapper {
+    width: 1393px;
+}
+
+.footer .top {
+    padding-top: 59px;
+    padding-left: 135px;
+    height: 175px;
+    border-bottom: 1px solid #434343;
+}
+
+.footer .top li {
+    position: relative;
+    float: left;
+    margin-right: 300px;
+    width: 195px;
+    height: 58px;
+    /* background-color: pink; */
+}
+
+.footer .top li:last-child {
+    margin-right: 0;
+}
+
+/* 伪元素为行内标签 */
+.footer .top li::before {
+    /* 图和文字不能用vertical-align或行高同时垂直居中，改用定位-子绝父相 */
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* display: inline-block; */
+    content: '';
+    width: 58px;
+    height: 58px;
+    background-image: url(../../uploads/money.png);
+    background-size: contain;
+    vertical-align: middle;
+}
+
+.footer .top li:nth-child(2)::before {
+
+    background-image: url(../../uploads/deliver.png);
+
+}
+
+.footer .top li:nth-child(3)::before {
+
+    background-image: url(../../uploads/like.png);
+
+}
+
+.footer .top li span {
+    margin-left: 80px;
+    line-height: 58px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.footer .bottom {
+    padding-top: 40px;
+    color: #999;
+    font-size: 14px;
+    text-align: center;
+}
+
+.footer .bottom p {
+    margin-bottom: 20px;
+}
+
+.footer .bottom a {
+    color: #999;
+    font-size: 14px;
+}

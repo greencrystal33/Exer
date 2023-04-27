@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘事件</title>
+    <style>
+        .search {
+            position: relative;
+            width: 178px;
+            margin: 100px;
+        }
+
+        .con {
+            display: none;
+            position: absolute;
+            top: -40px;
+            width: 171px;
+            border: 1px solid rgba(0, 0, 0, .2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+            padding: 5px 0;
+            font-size: 18px;
+            line-height: 20px;
+            color: #333;
+        }
+
+        .con::before {
+            content: '';
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 28px;
+            left: 18px;
+            border: 8px solid #000;
+            border-style: solid dashed dashed;
+            background-color: #fff transparent transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="../images/ASCII.png" alt="">
+    <div class="search">
+        <div class="con">123</div>
+        <input type="text">
+    </div>
+    <script>
+        // ===========常用键盘事件==============
+        // onkeyup: 按键松开时触发
+        // document.onkeyup = function () {
+        //     console.log('keyup');
+        // }
+        document.addEventListener('keyup', function (e) {
+            console.log('keyup', e.key);
+        });
+        // onkeydown: 按键按下时触发
+        document.addEventListener('keydown', function (e) {
+            console.log('keydown', e.key, e.keyCode);
+            console.log(e);
+        });
+        // onkeypress: 按键按下时触发，但不识别功能键，如 ctrl alt 箭头等
+        document.addEventListener('keypress', function (e) {
+            console.log('keypress', e.key, e.keyCode);
+            console.log(e);
+        });
+        // 执行顺序： keydown keypress keyup
+
+        // ===========键盘事件对象==============
+        // KeyboardEvent :e.key 有兼容性问题，e.keyCode为ASCII码值
+        // keydown,keyup的keycode不区分大小写，keypress区分大小写
+
+        // 案例：JD首页按s键 搜索框获得焦点
+        var search = document.querySelector('input');
+        document.addEventListener('keyup', function (e) {
+            if (e.keyCode == 83) {
+                search.focus();
+            }
+        });
+
+        // 案例：输入框上方放大文本显示，文本框无内容显示时或者失去焦点时不显示con
+        var con = document.querySelector('.con');
+        var search_input = document.querySelector('input');
+        search_input.addEventListener('keyup', function (e) {
+            if (this.value == '') {
+                con.style.display = 'none';
+            } else {
+                con.innerText = this.value;
+                con.style.display = 'block';
+            }
+        });
+        // 失去焦点
+        search_input.addEventListener('blur', function (e) {
+            con.style.display = 'none';
+        })
+        // 获得焦点
+        search_input.addEventListener('focus', function (e) {
+            if (this.value == '') {
+                con.style.display = 'none';
+            } else {
+                con.style.display = 'block';
+            }
+        })
+        // 注意: keydown 和 keypress 在文本框里面的特点: 他们两个事件触发的时候，文字还没有落入文本框中。keyup触发时，文本已经落入文本框内了。
+    </script>
+</body>
+
+</html>

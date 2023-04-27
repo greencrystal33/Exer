@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>同步异步</title>
+</head>
+
+<body>
+    <img src="../images/async.png" alt="">
+    <img src="../images/execute.png" alt="">
+    <script>
+        // js语言是单线程执行
+        // 利用多核CPU的计算能力，HTML5提出Web Worker 标准，允许avaScript脚本创建多个线程。于是，JS中出现了同步和异步
+        // 同步：同时只能执行一个任务
+        // 异步：同时执行多任务
+
+        console.log(1);
+
+        setTimeout(function () {
+            console.log(3);
+        }, 0);
+
+        console.log(2);
+
+        // 回调函数属于异步任务
+        console.log('a');
+        document.onclick = function () {
+            console.log('click');
+        }
+        console.log('b');
+        setTimeout(function () {
+            console.log("c");
+        }, 3000)
+    </script>
+</body>
+
+</html>

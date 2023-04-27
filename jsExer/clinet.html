@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素偏移量clinet系列/scroll系列</title>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+            border: 5px solid skyblue;
+            padding: 30px;
+            /* 自动显示滚动条 */
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img src="../images/client.png" alt="">
+    <br>
+    <span>包含padding</span>
+    <br>
+    <img src="../images/scroll.png" alt="">
+    <div>
+        元素偏移量clinet系列/scroll系列,元素偏移量clinet系列/scroll系列,元素偏移量clinet系列/scroll系列,元素偏移量clinet系列/scroll系列,元素偏移量clinet系列/scroll系列,
+        元素偏移量clinet系列/scroll系列,元素偏移量clinet系列/scroll系列,元素偏移量clinet系列/scroll系列,元素偏移量clinet系列/scroll系列,
+        元素偏移量clinet系列/scroll系列,元素偏移量clinet系列/scroll系列,元素偏移量clinet系列/scroll系列,元素偏移量clinet系列/scroll系列,
+    </div>
+    <script>
+        var div = document.querySelector('div');
+        console.log(div.clientHeight, div.clientLeft, div.clientTop);
+        console.log(div.scrollHeight, div.scrollLeft, div.scrollTop);
+        // scroll滚动事件
+        div.addEventListener('scroll',function(e){
+            console.log(parseInt((div.scrollTop)));
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAB栏切换</title>
+    <style>
+        .tab_list li {
+            float: left;
+            height: 30px;
+            line-height: 39px;
+            text-align: center;
+            cursor: pointer;
+            margin: 10px;
+            color: black;
+        }
+
+        .current {
+            background-color: red;
+            color: white;
+        }
+
+        .item {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="tab_list">
+            <ol>
+                <li class="current">简介</li>
+                <li>规格</li>
+                <li>评价</li>
+                <li>售后</li>
+                </ul>
+        </div>
+        <div class="con">
+            <ul>
+                <li class="item" style="display:block">简介 内容</li>
+                <li class="item">规格 内容</li>
+                <li class="item">评价 内容</li>
+                <li class="item">售后 内容</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var tab_list = document.querySelector('.tab_list');
+        var lis = tab_list.querySelectorAll('li');
+        var items = document.querySelectorAll('.item');
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].setAttribute('index', i);
+            lis[i].onclick = function () {
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].className = '';
+                }
+
+                this.className = 'current';
+
+                var index = this.getAttribute('index');
+                for (var i = 0; i < items.length; i++) {
+                    items[i].style.display = 'none';
+                }
+
+                items[index].style.display = 'block';
+
+            }
+        }
+    </script>
+</body>
+
+</html>

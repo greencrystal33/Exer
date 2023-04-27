@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>装饰</title>
+    <style>
+        .big {
+            height: 350px;
+        }
+
+        .vertical {
+            vertical-align: bottom;
+        }
+
+        .middle {
+            height: 50px;
+            box-sizing: border-box;
+            vertical-align: bottom;
+        }
+
+        .father {
+            width: 400px;
+            /* 不设高度，则按内容撑开高度 */
+            /* height: 200px; */
+            background-color: pink;
+        }
+
+        .top {
+            vertical-align: top;
+        }
+
+        .block {
+            display: block;
+        }
+
+        .imgfather {
+            width: 600px;
+            height: 600px;
+            line-height: 600px;
+            background-color: skyblue;
+            text-align: center;
+        }
+
+        .imgfather img {
+            vertical-align: middle;
+        }
+
+
+        .cursor p {
+            cursor: default;
+        }
+
+        .cursor .hand {
+            cursor: pointer;
+        }
+
+        .cursor .move {
+            cursor: move;
+        }
+
+        .radius {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            border-radius: 10px 20px 30px 40px;
+        }
+
+        .circle {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border-radius: 50%;
+        }
+
+        .capsule {
+            width: 300px;
+            height: 100px;
+            background-color: purple;
+            /* 长方形，radius设为高度的一半 */
+            border-radius: 50px;
+        }
+
+        .of {
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+            /* 快捷ovh */
+            /* overflow: hidden; */
+            /* overflow: scroll; */
+            overflow: auto;
+        }
+
+        .one,
+        .two {
+            width: 200px;
+            height: 200px;
+        }
+
+        .one {
+            background-color: pink;
+            /* 占位隐藏，不常用 */
+            visibility: hidden;
+            /* 不占位隐藏 */
+            /* display: none; */
+        }
+
+        .two {
+            background-color: skyblue;
+        }
+
+
+        .nav {
+            margin: 0 auto;
+            width: 800px;
+            height: 50px;
+            background-color: pink;
+
+        }
+
+        li {
+            float: left;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        li a {
+            /* float: left; */
+            display: block;
+            width: 100px;
+            line-height: 50px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-right: 1px solid #fff;
+        }
+
+        .nav .app {
+            position: relative;
+        }
+
+        .code {
+            display: none;
+
+            position: absolute;
+            left: 50%;
+            top: 50px;
+            transform: translate(-50%, 0);
+        }
+
+        /* a 悬停时图片的样式 */
+        .nav li a:hover img {
+            display: block;
+        }
+
+        .clearfix::before,
+        .clearfix::after {
+            content: '';
+            display: table;
+        }
+
+        .clearfix::after {
+            clear: both;
+        }
+
+        .opacity {
+            width: 400px;
+            height: 500px;
+            background-color: pink;
+
+            opacity: 0.3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clearfix">
+        <h3>基线</h3>
+        <img class="big" src="../images/baseline.png" alt="">
+        <input type="text" placeholder="验证对齐">
+        <!-- 行内元素和行内块浏览器当做文字成立，垂直方向默认按基线对齐， 图文底部对不齐-->
+        <h3>1.垂直对齐vertical-align</h3>
+        <div>
+            <div>
+                <p>图片设置垂直对齐</p>
+                <img class="vertical" src="../images/vertical-align.png" alt="">
+                <input type="text" placeholder="对齐">
+            </div>
+
+            <br>
+            <input class="middle" type="text" placeholder="输入"><input class="middle" type="button" value="搜索">
+
+            <hr>
+
+            <p>子级行内块内容默认会有偏差</p>
+            <div class="father">
+                <input type="text">
+            </div>
+            <p>可子级设置垂直对齐方式</p>
+            <div class="father">
+                <input class="top" type="text">
+            </div>
+
+            <p>也可以将内容设为block解决</p>
+            <div class="father">
+                <input type="text" class="block">
+            </div>
+
+            <br>
+            <div class="imgfather">
+                <img src="../images/wallet.jpg" alt="">
+            </div>
+        </div>
+
+        <hr>
+        <h3>2.光标类型</h3>
+        <div> <img src="../images/cursor.png" alt="">
+
+            <div class="cursor">
+                <p>箭头</p>
+                <div class="hand">
+                    小手
+                </div>
+                <div class="move">
+                    移动移动
+                </div>
+            </div>
+        </div>
+
+
+        <hr>
+        <h3>3.边框圆角</h3>
+        <div> <img src="../images/radius.png" alt="">
+            <!-- 取值：数字+px、百分比 -->
+            <div class="radius"></div>
+
+            <h4>正圆</h4>
+            <div class="circle"></div>
+
+            <h4>胶囊按钮</h4>
+            <div class="capsule"></div>
+        </div>
+
+        <hr>
+        <h3>4.overflow溢出部分显示效果</h3>
+        <img src="../images/overflow.png" alt="">
+        <div>
+            <div class="of">
+                溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试
+                溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试
+                溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试
+                溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试
+                溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试
+                溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试
+                溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试
+            </div>
+        </div>
+
+        <hr>
+        <h3>5.元素本身隐藏</h3>
+        <div class="clearfix">
+            <!-- 1.visibility: hidden;-->
+            <!-- 2.display: none;  -->
+            <div class="one">1</div>
+            <div class="two">2</div>
+
+            <h4>悬停二维码</h4>
+            <div class="nav">
+                <ul>
+                    <li><a href="#">导航1</a></li>
+                    <li><a href="#">导航2</a></li>
+                    <li><a href="#" class="app">app下载二维码
+                            <img class="code" src="../images/QRCode.png" alt="">
+                        </a></li>
+                    <li><a href="#">导航4</a></li>
+                    <li><a href="#">导航5</a></li>
+                    <li><a href="#">导航6</a></li>
+                    <li><a href="#">导航7</a></li>
+                    <li><a href="#">导航8</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <h3>元素的整体透明度opacity</h3>
+    <div class="opacity">
+        <img src="../images/wallet.jpg" alt="">
+        <p>ppppppppppp</p>
+    </div>
+</body>
+
+</html>

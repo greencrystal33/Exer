@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css盒子模型</title>
+    <style>
+        .div {
+            width: 300px;
+            height: 100px;
+            background-color: pink;
+            margin: 20px;
+            /* 可作为复合属性，上右下左 */
+            padding: 10px;
+            /* border复合属性，连写不分先后, 快捷bd */
+            /* solid 实线，dashed 虚线，dotted 点线 */
+            /* border: 3px solid purple; */
+            border-left: 5px solid #000;
+            /* 盒子尺寸= width/height + padding + 边框线 */
+
+            /* css3盒模型(自动内减) 通常可放入通配符中 */
+            box-sizing: border-box;
+        }
+
+        /* body {
+            background-color: gray;
+        } */
+
+        .navi {
+            height: 40px;
+            border-top: 3px solid orange;
+            border-bottom: 1px solid #edeef0;
+            /* background-color: #edeef0; */
+        }
+
+        .navi a {
+            /* width: auto; */
+            padding: 0 16px;
+            height: 40px;
+            /* 去掉下划线 */
+            text-decoration: none;
+            /* 使宽高设置起效 */
+            display: inline-block;
+            /* 水平居中 */
+            text-align: center;
+            /* 垂直居中 */
+            line-height: 40px;
+            color: #4c4c4c;
+        }
+
+        .navi a:hover{
+            color: orange;
+            background-color: #edeef0;
+        }
+
+        * {
+            /* 清除标签默认的样式 */
+            margin: 0;
+            padding: 0;
+        }
+
+        .heart {
+            width: 600px;
+            height: 300px;
+            background-color: pink;
+            /* 版心居中 */
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div">div1</div>
+    <div class="div">div2</div>
+
+    <!-- 布局顺序：从外到内，从上到下 -->
+    <div class="navi">
+        <a href="#">xx导航</a>
+        <a href="#">xx导航</a>
+        <a href="#">xx导航</a>
+        <a href="#">测试一下导航</a>
+    </div>
+
+    <!-- 默认有margin，用通配符清除 -->
+    <p>ppp</p>
+    <h1>h1</h1>
+
+    <div class="heart">版心居中</div>
+
+    
+    <script>
+        var div = document.querySelector('div');
+        console.log(div.clientWidth);
+    </script>
+</body>
+
+</html>

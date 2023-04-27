@@ -1,0 +1,32 @@
+.test {
+  width: 2.66666667rem;
+  height: 200px;
+  background-color: skyblue;
+}
+html {
+  font-size: 37.5px;
+}
+/* 注意对照生产的css文件理解 */
+.father {
+  background-color: #e64226;
+  /* 加,减,乘直接书写表达式 */
+  width: 150px;
+  height: 160px;
+  /* 除法需要添加小括号或者. */
+  width: 1.81333333rem;
+}
+.father .son {
+  width: 50px;
+  height: 50px;
+  background-color: pink;
+}
+.father .son:hover {
+  background-color: green;
+}
+.father:hover {
+  background-color: orange;
+}
+.box {
+  color: #e64226;
+  background-color: #e64226;
+}

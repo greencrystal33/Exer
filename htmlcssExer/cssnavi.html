@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航样式案例</title>
+    <style>
+        a {
+            width: 100px;
+            height: 50px;
+            display: inline-block;
+            text-decoration: none;
+            background-color: pink;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+        }
+
+        a:hover {
+            background-color: orange;
+        }
+
+        .randombg {
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#">导航1</a>
+    <a href="#">导航2</a>
+    <a href="#">导航3</a>
+    <a href="#">导航4</a>
+    <a href="#">导航5</a>
+    <script>
+        // 另一种方法
+        // var alls = document.querySelectorAll('a');
+        // for (var i = 0; i < alls.length; i++) {
+        //     alls[i].onmouseover = function () {
+        //         this.className = 'randombg';
+        //         console.log(this.innerText + ',' + this.style);
+        //     }
+
+        //     alls[i].onmouseout = function () {
+        //         this.className = '';
+
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

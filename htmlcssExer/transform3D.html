@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>空间转换(3D转换)</title>
+    <!-- <link rel="stylesheet" href="../assets/css/base.css"> -->
+    <style>
+        body {
+            perspective: 1000px;
+        }
+
+        p span {
+            color: red;
+        }
+
+        div {
+            margin: 30px auto;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            transition: all 0.5s;
+        }
+
+        .box:hover {
+            transform: translate3d(30px, 60px, 130px);
+            transform: translateZ(100px);
+            transform: rotateZ('angle');
+        }
+
+        .rotate {
+            text-align: center;
+            width: 80%;
+            height: 200px;
+            perspective: 1000px;
+        }
+
+        .rotate img {
+            height: 200px;
+            transition: all 2s;
+            border: 1px solid #000;
+        }
+
+        .rotate img:first-child:hover {
+            transform: rotateZ(360deg);
+        }
+
+        .rotate img:nth-child(2):hover {
+            transform: rotateY(60deg);
+        }
+
+        .rotate img:nth-child(3):hover {
+            transform: rotateX(-60deg);
+
+        }
+
+        .cube {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            /* background-color: #ccc; */
+
+            transition: all 3s;
+            transform-style: preserve-3d;
+            /* 观察用 */
+            /* transform: rotateX(-20deg) rotateY(-10deg); */
+        }
+
+        .cube div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 0 auto;
+            width: inherit;
+            height: inherit;
+            background-size: contain;
+        }
+
+        .cube .front {
+            /* background-color: pink; */
+            background-image: url(../uploads/money.png);
+            transform: translateZ(100px);
+        }
+
+        .cube .back {
+            /* background-color: skyblue; */
+            background-image: url(../uploads/logo-cool.png);
+
+            transform: rotateY(180deg) translateZ(100px);
+        }
+
+        .cube .left {
+            /* background-color: chartreuse; */
+            background-image: url(../uploads/car.png);
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+
+        .cube .right {
+            /* background-color: darkorchid; */
+            background-image: url(../uploads/new.png);
+            transform: rotateY(90deg) translateZ(100px);
+        }
+
+        .cube:hover {
+            transform: rotateY(360deg);
+        }
+
+        /* 3d导航 */
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+
+
+        .nav {
+            margin: 50px auto;
+            width: 300px;
+            height: 40px;
+            text-align: center;
+            background-color: #ccc;
+        }
+
+        .nav li {
+            position: relative;
+            float: left;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            transition: all 1s;
+            transform-style: preserve-3d;
+            /* 方便写代码时观察立体效果 */
+            /* transform: rotateX(-20deg) rotateY(30deg); */
+
+            /* transform: scale3d(0.5, 1.1, 2); */
+        }
+
+        .nav li a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .nav li a:first-child {
+            background-color: green;
+            transform: translateZ(20px);
+        }
+
+        .nav li a:last-child {
+            background-color: orange;
+            /*躺平x轴旋转90度，此时盒子正面在顶部，要看到盒子从顶部看，需要拉近，所以是z轴移动 */
+            transform: rotateX(90deg) translateZ(20px);
+        }
+
+        .nav li:hover {
+            transform: rotateX(-90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <h2>空间转换(3D转换)</h2>
+    <div>
+        <p>x,y,z轴构成的立体空间，z轴位置与视线方向相同</p>
+        <h3>transform: translate3d(x,y,z); </h3>
+        <p>perspective属性(<span>添加给父级,直接的父级，再往上不行</span>)实现透视效果(近大远小/近实远虚)</p>
+        <p>取值(为视距)：像素单位，一般在<span>800-1200</span></p>
+        <p>z轴是视线方向，电脑屏幕是平面，默认无法视察远近效果</p>
+        <div class="box"> </div>
+    </div>
+
+    <hr>
+    <h3>空间旋转</h3>
+    <div>
+        <h3>transform: rotateZ(值);</h3>
+        <p>判断旋转方向：左手法则</p>
+        <p><span>左手握住旋转轴，拇指指向正值方向，手指完全方向为旋转正值方向</span></p>
+        <p><span>注意y轴向下为正</span></p>
+        <div class="rotate">
+            <img src="../uploads/right.png" alt="" class="origin">
+            <img src="../uploads/logo-cool.png" alt="">
+            <img src="../uploads/money.png" alt="">
+        </div>
+    </div>
+
+    <h3>transform: rotate3d(x,y,z,角度度数); </h3>
+    <p>自定义旋转轴的位置及旋转的角度</p>
+    <p>x,y,z取值为0-1之间的数字</p>
+    <p>极少使用</p>
+
+    <hr>
+    <h3>立体呈现</h3>
+    <div>
+        <p>transform-style: preserve-3d; 呈现立体图形</p>
+        <p>使子元素处于真正的3d空间</p>
+        <p>默认值flat，表示子元素处于2d平面内呈现</p>
+        <div class="cube">
+            <div class="front">前</div>
+            <div class="back">后</div>
+            <div class="left">左</div>
+            <div class="right">右</div>
+        </div>
+
+        <!-- 3d导航 -->
+        <div class="nav">
+            <ul>
+                <li>
+                    <a href="#">首页</a>
+                    <a href="#">Index</a>
+                </li>
+                <li>
+                    <a href="#">登录</a>
+                    <a href="#">Login</a>
+                </li>
+
+                <li>
+                    <a href="#">注册</a>
+                    <a href="#">Rigister</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+    <h3>空间缩放</h3>
+    <p>极少用</p>
+    <p>transform: scaleX(倍数)</p>
+    <p>transform: scaleY(倍数)</p>
+    <p>transform: scaleZ(倍数)</p>
+    <p>transform: scale3d(x,y,z)</p>
+
+</body>
+
+</html>

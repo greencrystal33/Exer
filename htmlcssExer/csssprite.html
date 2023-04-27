@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精灵图、背景图、盒子阴影</title>
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <style>
+        span {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            /* background-color: pink; */
+            background-image: url(../images/taobao.png);
+            background-position: 0 0;
+        }
+
+        b {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            /* background-color: pink; */
+            background-image: url(../images/taobao.png);
+            background-position: 0 -44px;
+        }
+
+        div {
+            width: 250px;
+            /* margin: 0 auto; */
+        }
+
+        li {
+            float: left;
+            margin: 12px;
+            width: 24px;
+            height: 24px;
+            list-style: none;
+            background: url(../images/taobao.png) no-repeat;
+            background-position: 0 0;
+        }
+
+        .bg {
+            width: 400px;
+            height: 600px;
+            background-color: pink;
+            background-image: url(../images/wallet.jpg);
+            background-repeat: no-repeat;
+            /* background-size: 100px; */
+            /* 相对当前盒子的宽高比 */
+            /* background-size: 50%; */
+            /* 图的高或宽与盒子相同，另一个方向就停止缩放，可能导致盒子留白 */
+            background-size: contain;
+            /* 保证宽或高和盒子尺寸完全相同，导致图片显示不全 */
+            /* background-size: cover; */
+            /* 通常图与盒子比例相同 */
+
+            /* 连写： */
+            /* background: color image repeat position/size; */
+
+        }
+
+        .shadow {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+
+            box-shadow: 5px 10px 15px 20px blue;
+        }
+
+        .transition{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* transition: width 1s,background-color 1s; */
+            transition: all 1s;
+        }
+
+        .transition:hover{
+            width: 600px;
+            height: 300px;
+            background-color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+    <img src="../images/css-sprite.png" alt="">
+    <div class="clearfix">
+        <!-- 精灵图一般用行内标签 span b i等 -->
+        <span></span>
+        <b></b>
+
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <hr>
+    <h3>背景图大小</h3>
+    <img src="../images/bg-size.png" alt="">
+    <div class="bg"></div>
+
+    <hr>
+    <h3>盒子阴影</h3>
+    <img src="../images/shadow.png" alt="">
+    <div class="shadow">
+    </div>
+
+    <hr>
+    <h3>过渡</h3>
+    <img src="../images/transition.png" alt="">
+    <div class="transition"></div>
+
+    <script>
+        var lis = document.querySelectorAll('li');
+        // console.log(lis);
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].style.backgroundPosition = '0 ' + 44 * -i + 'px';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本样式</title>
+    <style>
+        .indent {
+            /* 文本缩进 text-indent*/
+            /* 取值：数字+px； 数字+em(1em=当前标签 fonts-size的大小) */
+
+            /* text-indent: 32px; */
+            /* 非默认字号则不同，则用em更方便 */
+            font-size: 30px;
+            text-indent: 2em;
+            /* 当前字号的两倍 */
+
+
+        }
+
+        h1 {
+            /* 水平对齐方式 */
+            text-align: center;
+        }
+
+        * {
+            margin: 10px;
+            /* padding: 10px; 会把hr变成框框*/
+        }
+
+        .imgAlign {
+            text-align: center;
+        }
+
+        div {
+            text-decoration: underline;
+        }
+
+        span {
+            text-decoration: line-through;
+        }
+
+        h2 {
+            text-decoration: overline;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .lineHeight {
+            /* line-height: 40px; */
+            line-height: 2;
+            /* font: style weight size/line-height family; */
+            font: italic 700 30px/2 宋体;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>文本样式</h3>
+    <h4>文本缩进 text-indent</h4>
+    <p class="indent">
+        据中国载人航天工程办公室消息，北京时间2022年11月3日15时12分，神舟十四号航天员乘组顺利进入梦天实验舱。后续，神舟十四号航天员乘组将在空间站内先后迎接天舟五号货运飞船、神舟十五号载人飞船的访问，届时神舟十四号、十五号两个乘组将完成中国航天史上首次航天员乘组在轨轮换。
+    </p>
+
+    <h1>新闻标题</h1> <!-- 文字是被h1包裹的，所以设置h1的text-align是可以的 -->
+    <div class="imgAlign">
+        <img src="../images/wallet.jpg" alt=""> <!-- 图片就是img，居中需要给父元素设置text-align -->
+    </div>
+
+    <hr>
+
+    <h4>文本修饰 text-decoration</h4>
+    <!-- 取值：
+    underline: 下划线
+    line-through:删除线
+    over-line: 上划线
+    none：无装饰线 -->
+
+    <div>div</div>
+    <span>span</span>
+    <h2>h2</h2>
+    <a href="#">超链接去掉下划线</a>
+
+    <hr>
+    <h4>行高 line-height</h4>
+    <!-- 取值： 1-数字+px；2-倍数，当前font-size的倍数，取1为取消行间距 -->
+    <!-- font 连写可用/加在size后，注意覆盖问题 -->
+    <!-- font: style weight size/line-height family; -->
+    <p>据中国载人航天工程办公室消息，北京时间2022年11月3日15时12分，神舟十四号航天员乘组顺利进入梦天实验舱。后续，神舟十四号航天员乘组将在空间站内先后迎接天舟五号货运飞船、神舟十五号载人飞船的访问，届时神舟十四号、十五号两个乘组将完成中国航天史上首次航天员乘组在轨轮换。
+    </p>
+
+    <p class="lineHeight">
+        据中国载人航天工程办公室消息，北京时间2022年11月3日15时12分，神舟十四号航天员乘组顺利进入梦天实验舱。后续，神舟十四号航天员乘组将在空间站内先后迎接天舟五号货运飞船、神舟十五号载人飞船的访问，届时神舟十四号、十五号两个乘组将完成中国航天史上首次航天员乘组在轨轮换。
+    </p>
+
+    <h3 style="color: rgb(154, 205, 50,0.5)">颜色取值</h3>
+    <img src="../images/color.png" alt="">
+</body>
+
+</html>

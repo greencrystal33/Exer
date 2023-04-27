@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>响应式网页</title>
+    <link rel="stylesheet" href="../assets/css/base.css" media="(min-width: 992px)">
+    <style>
+        /* 视口宽度小于等于767px，背景浅黄 */
+        @media (max-width: 767px) {
+            body {
+                background-color: rgb(252, 248, 201);
+            }
+        }
+
+        /* 视口宽度大于等于768px，背景粉色 */
+        @media (min-width: 768px) {
+            body {
+                background-color: pink;
+            }
+        }
+
+        /* 视口宽度大于等于992px，背景橙色 */
+        @media (min-width: 992px) {
+            body {
+                background-color: rgb(247, 192, 173);
+            }
+        }
+
+        /* 视口宽度大于等于1200px，背景天蓝 */
+        @media (min-width: 1200px) {
+            body {
+                background-color: skyblue;
+            }
+        }
+
+        span {
+            color: red;
+        }
+
+        @media (orientation: landscape) {
+            .orientation {
+                width: 100px;
+                height: 100px;
+                background-color: #fff;
+                border: 1px solid #000;
+            }
+        }
+
+        /* @media (orientation: portrait) {
+            .orientation{
+                width: 200px;
+                height: 200px;
+                background-color: olivedrab;
+                border: 1px solid #000;
+            }
+        } */
+
+        /* css层叠性，后写的会覆盖前面写的，所以要注意书写顺序 */
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2>响应式: 一套代码适配所有设备尺寸</h2>
+        <br>
+        示例:
+        <a href="http://alloyteam.com">腾讯AlloyTeam</a>
+
+        <h3>媒体查询</h3>
+        <p>根据设备宽度,设置差异化样式</p>
+        <h4>写法:</h4>
+        <p>@media (媒体特性){<br> 选择器{<br>样式<br>}}</p>
+        <p><span>css层叠性,后写的会覆盖前面写的,所以要注意书写顺序</span></p>
+        <ul>
+            <li>max-width<span>(从大到小书写)</span></li>
+            <li>min-width<span>(从小到大书写)</span></li>
+        </ul>
+
+        <h4>完整写法:</h4>
+        <p>@media 关键词 媒体类型 <span>and</span> (媒体特性){<br> 选择器{<br>样式<br>}}</p>
+        <p>关键词:</p>
+        <ul>
+            <li>and</li>
+            <li>only</li>
+            <li>not</li>
+        </ul>
+        <p>媒体类型</p>
+        <ul>
+            <li>screen: 带屏幕的设备</li>
+            <li>print: 打印预览模式</li>
+            <li>speech: 屏幕阅读模式</li>
+            <li>all: 默认值,包括以上3种情形</li>
+        </ul>
+        <p>媒体特性</p>
+        <ul>
+            <li>width, height</li>
+            <li>max-width, max-height</li>
+            <li>min-width, min-height</li>
+            <li>orientation: 屏幕方向. portrait-竖屏, landscape-横屏</li>
+        </ul>
+
+        <div class="orientation"></div>
+
+        <h4>link引入外联css样式表的媒体查询</h4>
+        <!-- <link rel="stylesheet" href="../assets/css/one.css" media="(min-width: 992px)"> -->
+        <!-- <link rel="stylesheet" href="../assets/css/two.css" media="(min-width: 1200px)"> -->
+
+    </div>
+</body>
+
+</html>

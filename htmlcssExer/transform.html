@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>平面转换</title>
+    <!-- <link rel="stylesheet" href="../assets/css/base.css"> -->
+    <style>
+        .father {
+            width: 500px;
+            height: 300px;
+            margin: 100px;
+            border: 1px solid #000;
+        }
+
+        .son {
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+            /* 过渡 */
+            transition: all 0.5s;
+        }
+
+        /* 在father鼠标悬停的时候，移动son的位置 */
+        .father:hover .son {
+            /* tf */
+            /* transform: translate(50px, 100px); */
+            /* 百分比是参考盒子(son)自身的尺寸 */
+            /* transform: translate(-50%, -100%); */
+            transform: translateY(-100%);
+        }
+
+        .center {
+            position: relative;
+        }
+
+        .center div {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            /* 悬停时，下面这行无效了，hover中的translateY(-100%)生效，所以效果是X,Y轴都移动了 */
+            transform: translate(-50%, -50%);
+        }
+
+        .bg {
+            margin: 50px auto;
+            width: 80%;
+            height: 500px;
+            background-color: #ccc;
+            overflow: hidden;
+            background-image: url(../uploads/bg.jpg);
+            background-size: cover;
+        }
+
+        .bg:hover .left {
+            transform: translateX(-100%);
+        }
+
+        .bg:hover .right {
+            transform: translateX(100%);
+        }
+
+        .left {
+            float: left;
+            width: 50%;
+            height: inherit;
+            background-color: pink;
+            transition: all 0.5s;
+
+            background-image: url(../uploads/bg1.jpeg);
+            background-size: cover;
+        }
+
+        .right {
+            float: right;
+            width: 50%;
+            height: inherit;
+            background-color: skyblue;
+            transition: all 0.5s;
+
+            background-image: url(../uploads/bg2.jpeg);
+            background-size: cover;
+        }
+
+
+        /* 用伪元素 */
+        /* 行内显示模式，宽高不生效，要设为行内块或者用浮动 */
+
+
+        .fate {
+            margin: 0 auto;
+            width: 1584px;
+            height: 990px;
+            background-image: url(../uploads/bg2.jpeg);
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .fate::before,
+        .fate::after {
+            float: left;
+            content: '';
+            width: 50%;
+            height: inherit;
+            transition: all 0.5s;
+            /* 用精灵图方式，同一张图直接双开门，但图的尺寸必须和父级宽高设置一致 */
+            background-image: url(../uploads/bg11.jpeg);
+        }
+
+        .fate::after {
+            /* 用右半边 */
+            background-position: right 0;
+        }
+
+        /*  .fate:hover .fate::before  */
+        .fate:hover:before {
+            transform: translateX(-100%);
+        }
+
+        .fate:hover::after {
+            transform: translateX(100%);
+        }
+
+        img {
+            margin-left: 100px;
+            transition: all 2s;
+        }
+
+        img:hover {
+            transform: rotate(360deg);
+        }
+
+        .origin {
+            border: 1px solid #000;
+            /* 写在元素本身，不写在hover */
+            transform-origin: right bottom;
+            transform-origin: 26px 50%;
+        }
+
+        .box {
+            width: 800px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+
+        .multi {
+            margin-left: 0;
+            height: inherit;
+            /* border: 1px solid #000; */
+        }
+
+        .box:hover .multi {
+            transform: translateX(600px) rotate(720deg);
+        }
+
+        .scale {
+            transition: all 0.5s;
+        }
+
+        .scale:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <h2>transform</h2>
+    <p>实现元素的位移、旋转、缩放等效果</p>
+    <h3>位移：</h3>
+    <div>
+        <p>transform:translate(水平[,垂直])，translateX(),translateY()</p>
+        <div class="father">
+            <div class="son"></div>
+        </div>
+
+        <!-- 居中：子绝父相 -->
+        <div class="father center">
+            <div class="son"></div>
+        </div>
+
+        <!-- 双开门效果 -->
+        <!-- 方法1： -->
+        <div class="bg">
+            <div class="left"></div>
+            <div class="right"></div>
+        </div>
+
+        <!-- 方法2：用伪元素 -->
+        <div class="fate"></div>
+    </div>
+
+    <hr>
+    <h3>旋转：</h3>
+    <div>
+        <h4>transform:rotate(角度)</h4>
+        <p>角度单位：deg。正为顺时针，负为逆时针</p>
+        <p>旋转效果一定要加过渡transition</p>
+        <img src="../uploads/right.png" alt="">
+
+        <h4>用transform-origin改变转换原点</h4>
+        <p>默认原点是盒子的中心点</p>
+        <p>transform-origin: 原点水平位置 原点垂直位置</p>
+        <p>取值：</p>
+        <ul>
+            <li>方位名词(left,top,right,bottom,center)</li>
+            <li>像素单位数值</li>
+            <li>百分比</li>
+        </ul>
+        <img src="../uploads/right.png" alt="" class="origin">
+    </div>
+
+    <hr>
+    <h3>多重转换</h3>
+    <div>
+        <p>复合属性实现多形态转换</p>
+        <p>transform: translate() rotate();</p>
+
+        <div class="box">
+            <img class="multi" src="../uploads/circle-back.png" alt="">
+        </div>
+    </div>
+
+    <hr>
+    <h3>缩放</h3>
+    <div>
+        <p>transform: scale(x轴缩放倍数[,y轴缩放倍数]);</p>
+        <img class="scale" src="../uploads/item001.webp" alt="">
+    </div>
+</body>
+
+</html>

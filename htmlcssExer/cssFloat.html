@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css浮动</title>
+    <style>
+        ul li:first-child {
+            background-color: #ccc;
+        }
+
+        ul li:last-child {
+            background-color: green;
+        }
+
+        ul li:nth-child(3){
+            background-color: red;
+        }
+
+        ul li:nth-last-child(2){
+            background-color: pink;
+        }
+
+        /* ==================== */
+        
+        ol li:nth-child(odd){
+            background-color: skyblue;
+        }
+
+        ol li:nth-last-child(-n+3){
+            color: red;
+        }
+
+        ol li:nth-child(4n){
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>结构伪类选择器</h3>
+    <img src="../images/结构伪类选择器.png" alt="">
+
+    <ul>
+        <li>这是第1个li</li>
+        <li>这是第2个li</li>
+        <li>这是第3个li</li>
+        <li>这是第4个li</li>
+        <li>这是第5个li</li>
+        <li>这是第6个li</li>
+        <li>这是第7个li</li>
+        <li>这是第8个li</li>
+    </ul>
+
+    <img src="../images/结构伪类选择器2.png" alt="">
+
+    <ol>
+        <li>test1</li>
+        <li>test2</li>
+        <li>test3</li>
+        <li>test4</li>
+        <li>test5</li>
+        <li>test6</li>
+        <li>test7</li>
+        <li>test8</li>
+        <li>test9</li>
+        <li>test10</li>
+    </ol>
+</body>
+
+</html>

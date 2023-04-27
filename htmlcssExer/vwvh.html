@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动适配-vw/vh</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .demo {
+            width: 20vw;
+            height: 5vw;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo"></div>
+
+    <h3>移动适配-vw/vh</h3>
+    <h4>相对单位</h4>
+    <p>相对 <span class="red">视口的尺寸</span> 计算结果</p>
+    <p>vw: viewport width</p>
+    <p>--> 1vw = <span class="red">1/100</span>视口宽度</p>
+    <p>vh: viewport height</p>
+    <p>--> 1vh = <span class="red">1/100</span>视口高度</p>
+    
+    <p>宽高都用一个单位,都vw或vh,防止在不同比例分辨率的屏上显示宽高比不同</p>
+</body>
+
+</html>

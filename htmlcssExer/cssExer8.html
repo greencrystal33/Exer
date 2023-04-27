@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css盒子模型案例</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 500px;
+            height: 400px;
+            /* background-color: pink; */
+            margin: 50px auto;
+            border: 1px solid #ccc;
+            padding: 42px 30px 0;
+        }
+
+        .box h2 {
+            border-bottom: 1px solid #ccc;
+            line-height: 1;
+            padding-bottom: 9px;
+        }
+
+        ul {
+            /* 去掉列表符号 */
+            list-style: none;
+        }
+
+        .box li {
+            height: 50px;
+            border-bottom: 1px dashed #ccc;
+            padding-left: 20px;
+            line-height: 50px;
+        }
+
+        .box li a {
+            text-decoration: none;
+            color: #666;
+            font-size: 18px;
+        }
+
+        .box li a:hover {
+            color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h2>最新文章</h2>
+        <ul>
+            <li><a href="#">招聘信息，平面设计abc</a></li>
+            <li><a href="#">招聘信息，平面设计abc</a></li>
+            <li><a href="#">招聘信息，平面设计abc</a></li>
+            <li><a href="#">招聘信息，平面设计abc</a></li>
+            <li><a href="#">招聘信息，平面设计abc</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

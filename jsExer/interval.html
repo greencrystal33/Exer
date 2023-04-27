@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>两种定时器</title>
+</head>
+
+<body>
+    <img src="../uploads/item001.webp" alt="">
+    <button>stop AD</button>
+    <script>
+        // window.setTimeout(调用函数， 延时时间);  
+        // 延时时间：毫秒，可省略，默认为0
+
+        var timer1 = setTimeout(() => {
+            console.log(this);
+            console.log('timeout');
+        }, 2000);
+
+        function callback() {
+            console.log('boom');
+        }
+
+        var timer2 = setTimeout(callback, 3000);
+
+        // 案例：5秒后关闭广告
+        var img = document.querySelector('img');
+        var timerAD = setTimeout(function () {
+            img.style.display = 'none';
+        }, 5000)
+
+        // 停止定时器
+        // window.clearTimeout(timeoutID)
+        var btn = document.querySelector('button');
+        btn.addEventListener('click', function () {
+            window.clearTimeout(timerAD);
+            console.log(this);
+        })
+
+
+        // window.setInterval(调用函数， [间隔的毫秒数]);  
+        var txt = btn.innerText;
+        var t = 5;
+        ff();
+        var i = setInterval(ff, 1000);
+
+        function ff() {
+            if (t > -1) {
+                btn.innerText = txt + '(' + t + ')';
+            }
+            else {
+                clearInterval(i)
+            }
+            t--;
+        }
+
+        // this指向问题
+        // 1、全局作用域或普通函数中this指向全局对象window，定时器的函数中的this指向window (window.setTimeout)
+        console.log(this);
+        function fun() {
+            console.log(this);
+        }
+        window.fun();
+        // 2、方法调用中谁调用this指向谁
+        var o = {
+            sayHi: function () {
+                console.log('sayHi:', this);  //this 指向o
+            }
+        }
+        o.sayHi();
+        // 3、构造函数中this指向构造函数的实例
+        function Fn() {
+            console.log(this);//this指向Fn的实例对象fn
+        }
+        var fn = new Fn();
+    </script>
+</body>
+
+</html>

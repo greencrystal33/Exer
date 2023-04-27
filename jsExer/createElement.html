@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建删除节点,简单留言板案例</title>
+    <style>
+        .board {
+            width: 300px;
+        }
+
+        .board li {
+            /* padding: 5px; */
+            margin: 15px 0;
+            background-color: pink;
+        }
+
+        li a {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>123</li>
+    </ul>
+    <button class="del">删除</button>
+    <button class="copy">复制</button>
+
+    <br>
+    <h3>简单留言板</h3>
+    <textarea name="" id="" cols="30" rows="10">123</textarea>
+    <button class="leaveMsg">发布</button>
+    <ul class="board"></ul>
+    <script>
+        // 1.创建节点
+        var li = document.createElement('li');
+        li.innerText = '添加节点';
+        // 2.添加节点 node.appendChild(child)
+        var ul = document.querySelector('ul');
+        ul.appendChild(li);
+        // 3.插入节点 node.insertBefore(child,指定元素)
+        var lili = document.createElement('li');
+        lili.innerText = '插入节点';
+        ul.insertBefore(lili, ul.children[0]);
+
+        ul.appendChild(document.createElement('li'));
+
+        // 4.删除节点
+        var btnDel = document.querySelector('.del');
+        btnDel.onclick = function () {
+            if (ul.children.length > 0) {
+                ul.removeChild(ul.children[0]);
+            }
+            if (ul.children.length == 0) {
+                this.disabled = true;
+            }
+        };
+
+        // 5.克隆节点 node.closeNode()
+        var btnCopy = document.querySelector('.copy');
+        btnCopy.onclick = function () {
+            var liCopy = ul.children[0].cloneNode();
+            // cloneNode() 参数为空或false，则是浅拷贝，即只赋值节点本身，不克隆里面的子节点
+            // liCopy.innerText = '复制';
+            ul.appendChild(liCopy);
+            // var liCopy2 = ul.children[0].cloneNode(true);  //深拷贝
+            // ul.appendChild(liCopy2);
+
+        };
+
+        // 二、创建元素的三种方法 
+        // 1).document.write()//会导致页面重绘，极少使用
+        // 2).element.innerHtml  拼接字符串， 效率较低；用数组形式拼接，效率高(高于方法3)
+        // 3).document.createElement() 效率较高，结构清晰
+
+        // 简单留言板案例
+        var btn = document.querySelector('.leaveMsg');
+        var text = document.querySelector('textarea');
+        console.log(text);
+        var board = document.querySelector('.board');
+
+        btn.onclick = function () {
+            // 创建元素
+            var li = document.createElement('li');
+            console.log(text.value);
+            if (text.value == '') {
+                alert('请输入内容');
+                return false;
+            } else {
+                var time = new Date();
+                li.innerHTML = time.toLocaleString() + ' : ' + text.value + "<a href='javascript:;'>删除</a>";
+                // href 用#点击后地址栏会跳转，阻止跳转可以用 或者javascript:void(0); 或者 javascript:; 
+                // board.appendChild(li);
+                //   添加元素
+                board.insertBefore(li, board.children[0]);  //最新在最前
+                text.value = Math.round(Math.random() * 1000);  //获得一个1000以内随机整数
+
+                // 删除元素：a 添加click事件，点击时删除a的父元素，即li
+                var as = document.querySelectorAll('a');
+                for (let i = 0; i < as.length; i++) {
+                    const a = as[i];
+                    a.onclick = function () {
+                        board.removeChild(this.parentNode);
+                    };
+                }
+
+            }
+        }
+    </script>
+</body>
+
+</html>

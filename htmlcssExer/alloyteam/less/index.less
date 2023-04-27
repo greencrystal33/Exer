@@ -1,0 +1,74 @@
+// 导航条
+.navbar-default {
+    background-color: transparent;
+    border: 0;
+    padding: 10px 0;
+
+    .navbar-brand img {
+        width: 200px;
+        height: 39px;
+        margin-top: 5px;
+    }
+}
+
+// 轮播图
+.carousel {
+    .item {
+        height: 500px;
+        background-size: cover;
+        background-position: 50%;
+        transform: translate(-50%, -50%);
+
+        img {
+            height: 100% !important;
+        }
+
+        &:nth-child(1) {
+            background-image: url(../images/banner_0.jpg);
+        }
+
+        &:nth-child(2) {
+            background-image: url(../images/banner_1.jpg);
+        }
+
+        &:nth-child(3) {
+            background-image: url(../images/banner_2.jpg);
+        }
+
+        &:nth-child(4) {
+            background-image: url(../images/banner_tweb2019.png);
+        }
+
+        @media (max-width: 992px) {
+            // .carousel .item {
+            height: 400px;
+        }
+
+        @media (max-width: 768px) {
+            // .carousel .item {
+            height: 250px;
+        }
+    }
+
+}
+
+// 开源项目区
+.project {
+    text-align: center;
+    padding-top: 30px;
+
+    .container {
+        div {
+            a {
+                display: block;
+                height: 200px;
+                background-color: #70c3ff;
+            }
+
+            // 栅格布局，都是用百分比定宽度，所以不能用margin来拉开间距
+            // padding: 10px 15px;
+            // &:nth-child(1){
+            // }
+        }
+    }
+}

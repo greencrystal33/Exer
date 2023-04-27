@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex布局</title>
+    <link rel="stylesheet" href="../lib/iconfont/iconfont.css">
+    <style>
+        /* *{
+            margin: 0;
+            padding: 0;
+        } */
+
+        img {
+            width: 100%;
+        }
+
+        .case {
+            display: flex;
+            /* justify-content: center; */
+            /* justify-content: space-between; */
+            /* justify-content: space-evenly; */
+            /* justify-content: space-around; */
+
+            /* align-items: center; */
+            /* 拉伸，子级设高度时无效 */
+            /* align-items: stretch; */
+
+
+            margin: auto;
+            height: 100px;
+            background-color: #ccc;
+        }
+
+        .case div {
+            /* width: 100px; */
+            /* height: 100px; */
+            background-color: pink;
+        }
+
+        .case div:nth-child(2) {
+            align-self: center;
+        }
+
+        div p span {
+            color: red;
+        }
+
+        .box {
+            display: flex;
+            justify-content: space-between;
+            height: 150px;
+            border: 1px solid #000;
+        }
+
+        .box div {
+            margin: 0 20px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        .box div:nth-child(1) {
+            width: 50px;
+        }
+
+        .box div:nth-child(2) {
+            flex: 1;
+        }
+
+        .box div:nth-child(3) {
+            flex: 2;
+        }
+
+        .home {
+            width: auto;
+            /* height: 100px; */
+            margin: 30px auto;
+        }
+
+        /* * {
+            box-sizing: border-box;
+        } */
+
+
+
+        .home li {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            /* 修改主轴方向：列 */
+            flex-direction: column;
+            /* 侧轴居中（此时为水平方向居中） */
+            align-items: center;
+            /* 主轴居中 */
+            justify-content: center;
+
+            list-style: none;
+            border: 1px solid #000;
+        }
+
+        .home li i {
+            font-size: 30px;
+        }
+
+        .wrap {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-evenly;
+            margin: 50px auto;
+            width: 200px;
+            height: 300px;
+            border: 1px solid #000;
+        }
+
+        .wrap div {
+            width: 60px;
+            height: 50px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>flex布局(弹性布局)</h2>
+    <div class="flex">
+        <p>浏览器提倡的布局模型，更简单灵活，<span>避免浮动脱标的问题</span></p>
+        <p>检查兼容性问题：</p>
+        <a href="http://caniuse.com">caniuse</a>
+        <br><br>
+        <p>只能在<span>直接的父级</span>元素添加display: flex</p>
+        <p>默认主轴在水平方向</p>
+        <img src="../images/flex.png" alt="">
+
+        <br> <br>
+        <h4>主轴对齐方式</h4>
+        <p>justify-content</p>
+        <img src="../images/justify-content.png" alt="">
+
+        <br> <br>
+        <h4>侧轴对齐方式</h4>
+        <p>align-items</p>
+        <img src="../images/align-items.png" alt="">
+
+
+    </div>
+
+    <div class="case">
+        <div>1111</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+
+    <h3>flex属性修改弹性盒子伸缩比</h3>
+    <div>
+        <p>flex:值</p>
+        <p>取值分类：整数</p>
+        <p><span>只占用父盒子剩余尺寸</span></p>
+    </div>
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+
+    <h3>flex-direction改变元素排列方向</h3>
+    <div>
+        <p>row:默认值,column,row-reverse,column-reverse</p>
+        <div class="home">
+            <ul>
+                <li>
+                    <i class="iconfont icon-home"></i>
+                    <span>Home</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>flex-wrap实现弹性盒子多行排列效果</h3>
+    <div>
+        <p>nowrap:默认值,不换行</p>
+        <p>wrap:换换</p>
+        <p>align-content:调整行对齐方式,取值与justify-content基本相同</p>
+        <div class="wrap">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+        </div>
+    </div>
+</body>
+
+</html>

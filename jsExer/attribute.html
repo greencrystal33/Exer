@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素属性的获取和设置</title>
+</head>
+
+<body>
+    <button id="btn2">请输入</button>
+    <div data-index="2" data-list-name="listArt"></div>
+    <script>
+        console.log('-----------元素属性----------');
+        // 获取元素属性
+        // 1、element.属性；2、element.getAttribute(属性); 
+        console.log(btn2.id);
+        console.log(btn2.getAttribute('innerText')); // null ？？？
+        console.log(btn2.innerText);
+        
+        // 修改元素属性
+        // 1、element.属性='值'；2、element.setAttribute(属性)='值'
+        btn2.setAttribute('value', '2');
+        btn2.setAttribute('innerText', 'test'); // => innertext='text'，没改innerText？？？=>innertext不适用表单元素
+
+        // 自定义属性只能用getAttribute()获取 
+        // H5规定自定义属性必须以 data-开头，比如 data-index
+        // H5新增element.dataset.index 或者 H5新增element.dataset['index'] 获取自定义属性的方法： ie11以上才有
+        var div = document.querySelector('div');
+        div.setAttribute('data-time','18:00')
+        console.log(div.dataset);
+        console.log(div.dataset.time);
+        console.log(div.dataset.listName); //注意list-name要改为驼峰命名！
+
+        // 修改类名的2种方法:
+        div.className='nav';
+        div.setAttribute('class','nav'); //注意是class
+
+        // 移除属性 removeAttribute(属性)
+        div.removeAttribute('nav');
+    </script>
+</body>
+
+</html>

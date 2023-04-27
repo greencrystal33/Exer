@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背景</title>
+    <style>
+        .div {
+            width: 400px;
+            height: 400px;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-image: url(../images/wallet.jpg);
+        }
+
+        .bg {
+            width: 400px;
+            height: 400px;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-image: url(../images/wallet.jpg);
+            background-repeat: no-repeat;
+            /* background-position: 10px center; */ 
+            background-position: center;
+        }
+
+        .bg2 {
+            width: 400px;
+            height: 800px;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-image: url(../images/wallet.jpg);
+            background-repeat: repeat-y;
+        }
+
+        .bg3 {
+            width: 400px;
+            height: 400px;
+            /* 复合推荐写法：background: color image repeat postion; */
+            background: plum url(../images/wallet.jpg) no-repeat center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div">默认xy轴都平铺</div>
+    <br>
+    <br>
+    <div class="bg">背景不平铺 背景居中</div>
+
+    <br>
+    <br>
+    <div class="bg2">背景y轴平铺</div>
+
+    <br>
+    <br>
+    <div class="bg3">背景连写</div>
+</body>
+
+</html>

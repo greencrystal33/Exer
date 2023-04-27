@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    position: relative;
+    height: 100%;
+    background: url(../../uploads/bg.jpg) no-repeat;
+    background-position: center;
+    /* 缩放背景图 */
+    background-size: cover;
+}
+
+
+.icon-yun{
+    position: absolute;
+    left: 50%;
+    top: 100px;
+    width: 300px;
+    height: 100px;
+    font-size: 50px !important;
+    color: white;
+    opacity: 0.8;
+}
+
+.bg div:nth-child(1){
+    margin-left: -300px;
+    animation: move 2s infinite alternate linear;
+}
+
+.bg div:nth-child(2){
+    margin-left: 500px;
+    font-size: 80px !important;
+    animation: move 2s 0.6s infinite alternate linear;
+}
+
+.bg div:nth-child(3){
+    margin-left: -100px;
+    top: 300px;
+    font-size: 60px !important;
+    animation: move 2s 0.9s infinite alternate linear;
+}
+
+@keyframes move {
+    to{
+        transform: translateX(30px);
+    }
+}

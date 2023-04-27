@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动案例</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            margin: 0 auto;
+            width: 50pc;
+            height: 100px;
+            background-color: pink;
+        }
+
+        .content {
+            margin: 0 auto;
+            width: 50pc;
+            height: 300px;
+            background-color: green;
+        }
+
+        .left {
+            float: left;
+            width: 10pc;
+            height: 300px;
+            background-color: orange;
+        }
+
+        .right {
+            float: left;
+            width: 40pc;
+            height: 300px;
+            background-color: skyblue;
+        }
+
+        /* CSS书写顺序：浏览器执行效率更高 
+            1、浮动 / display
+            2、盒子模型：margin padding boder 宽高背景色
+            3、文字样式
+        */
+
+        /* =========== case 2 ==================== */
+        .box {
+            margin: 0 auto;
+            width: 600px;
+            height: 300px;
+            background-color: transparent;
+        }
+
+        .left2 {
+            float: left;
+            /* margin-right: 10px; */
+            width: 100px;
+            height: 300px;
+            background-color: purple;
+        }
+
+        .right2 {
+            float: left;
+            width: 460px;
+            height: 300px;
+            /* background-color: green; */
+        }
+
+        li {
+            float: left;
+            list-style: none;
+            width: 105px;
+            height: 145px;
+            background-color: skyblue;
+        }
+
+        .right2 li:nth-child(-n+4) {
+            margin: 0 0 10px 10px;
+
+        }
+
+        .right2 li:nth-child(n+5) {
+            margin: 0 0 0 10px;
+        }
+
+        hr{
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header"></div>
+    <div class="content">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+
+    <hr>
+
+    <div class="box">
+        <div class="left2"></div>
+        <div class="right2">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

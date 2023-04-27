@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标事件</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="../uploads/logo-cool2.png" alt="">
+    <script>
+        document.addEventListener('click', function (e) {
+            // clientX clientY在可视区的坐标
+            console.log(e.clientX, e.clientY);
+            // 在整个文档的坐标
+            console.log(e.pageX, e.pageY);  //ie9以上才支持
+            // 对于电脑屏幕的坐标
+            console.log(e.screenX, e.screenY);
+        });
+
+        // 鼠标移动事件： mousemove
+        // 案例：随鼠标移动的图标
+        var img = document.querySelector('img');
+        document.addEventListener('mousemove', function (e) {
+            // console.log(e.pageX, e.pageY);  //ie9以上才支持
+            // console.log(Math.round(img.width / 2));  
+
+            img.style.left = e.pageX - Math.round(img.width / 2) + "px";
+            img.style.top = e.pageY - Math.round(img.height / 2) + "px";
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .login {
+            position: relative;
+            left: 0;
+            top: 0;
+            display: none;
+            margin: 10px auto;
+            width: 300px;
+            line-height: 40px;
+            font-size: 14px;
+            border: #ebebeb 1px solid;
+            text-align: center;
+            z-index: 999;
+        }
+
+        .login-bg {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            background: rgba(0, 0, 0, .3);
+        }
+
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        .login-button a {
+            display: block;
+        }
+
+        .login-input input.list-input {
+            float: left;
+            line-height: 35px;
+            height: 35px;
+            width: 350px;
+            border: 1px solid #ebebeb;
+            text-indent: 5px;
+        }
+
+        .login-input {
+            overflow: hidden;
+            margin: 0px 0px 20px 0px;
+        }
+
+        .login-input label {
+            float: left;
+            width: 90px;
+            padding-right: 10px;
+            text-align: right;
+            line-height: 35px;
+            height: 35px;
+            font-size: 14px;
+        }
+
+        /* .login-title {
+            position: relative;
+        } */
+
+        .login-title span {
+            position: absolute;
+            font-size: 12px;
+            right: -2px;
+            top: -30px;
+            background: #ffffff;
+            border: #ebebeb solid 1px;
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-header"><a id="link" href="javascript:;">点击，弹出登录框</a></div>
+    <div id="login" class="login">
+        <div id="title" class="login-title">登录会员
+            <span><a id="closeBtn" href="javascript:;" class="close-login">关闭</a></span>
+        </div>
+        <div class="login-input-content">
+            <div class="login-input">
+                <labe1>用户名:</label><input type="text" placeholder="请输入用户名" name="info[username]" id="username"
+                        class="username">
+            </div>
+            <div class=" login-input">
+                <labe1>登录密码:</label>
+                    <input type="password" placeholder="请输入登录密码" name="info[password]" id="password">
+            </div>
+        </div>
+        <div id="loginBtn" class="login-button"><a a href="javascript:;" id="login-button-submit">
+        </div>
+        <!--遮盖层 -->
+        <div id="bg" class="login-bg"></div>
+    </div>
+
+    <script>
+        // 获取元素
+        var login = document.querySelector('.login');
+        var mask = document.querySelector('.login-bg');
+        var link = document.querySelector('#link');
+        var closeBtn = document.querySelector('#closeBtn');
+        var title = document.querySelector('#title');
+
+        // 点击登陆，弹出登陆框
+        link.addEventListener('click', function () {
+            // mask.style.display = 'block';
+            login.style.display = 'block';
+        })
+
+        // 点击关闭
+        closeBtn.addEventListener('click', function () {
+            mask.style.display = 'none';
+            login.style.display = 'none';
+        })
+
+        // 拖拽: 按下鼠标时拖动
+        title.addEventListener('mousedown', function (e) {
+            // console.log(title);
+            // 按下鼠标时，获得鼠标在盒子内的坐标
+            var x = e.pageX - login.offsetLeft;
+            var y = e.pageY - login.offsetTop;
+            // console.log(e.pageX, e.pageY);
+            // console.log(login.offsetLeft, login.offsetTop);
+            // 鼠标移动时，根据鼠标的坐标计算盒子的坐标
+            document.addEventListener('mousemove', funmove)
+            function funmove(e) {
+                console.log('before',login.style.left, login.style.top);
+                login.style.left = e.pageX - x + "px";
+                login.style.top = e.pageY - y + "px";
+                console.log('after',login.style.left, login.style.top);
+            }
+            // 鼠标松开时，移除 鼠标移动事件
+            document.addEventListener('mouseup', function (e) {
+                document.removeEventListener('mousemove', funmove)
+            })
+        })
+
+        // 
+    </script>
+</body>
+
+</html>

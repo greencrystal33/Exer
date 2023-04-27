@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格</title>
+    <style>
+        .bg {
+            background-color: pink;
+        }
+
+        table {
+            width: 500px;
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        td,
+        th {
+            border: 1px solid #333;
+        }
+
+        caption {
+            border: 1px  solid #333;
+        }
+
+        thead tr,
+        caption {
+            height: 40px;
+            background-color: #ccc;
+        }
+
+        h3 {
+            margin: auto;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" id="cbAll">
+                </th>
+                <th>代码</th>
+                <th>名称</th>
+                <th>数量</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>0001</td>
+                <td>测试1</td>
+                <td>1100</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>0002</td>
+                <td>测试2</td>
+                <td>2200</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>0003</td>
+                <td>测试3</td>
+                <td>3300</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <table>
+        <caption>
+            <h3>动态创建表格</h3>
+        </caption>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>学科</th>
+                <th>分数</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody class="dynamic">
+
+        </tbody>
+    </table>
+
+    <script>
+        var body = document.querySelector('tbody');
+        var trs = body.querySelectorAll('tr');
+        for (var i = 0; i < trs.length; i++) {
+            trs[i].onmousemove = function () {  //鼠标经过
+                this.className = "bg";
+            }
+            trs[i].onmouseout = function () {  //鼠标离开
+                this.className = '';
+            }
+
+        }
+
+        // 全选
+        var cbAll = document.getElementById("cbAll");
+        // console.log(cbAll);
+        // var cbs = document.getElementsByTagName('input');
+        var cbs = document.querySelector('tbody').querySelectorAll('input');
+        // console.log(cbs);
+
+        cbAll.onclick = function () {
+            this.checked;
+            for (var i = 0; i < cbs.length; i++) {
+                cbs[i].checked = this.checked;
+            }
+        }
+
+        for (var i = 0; i < cbs.length; i++) {
+            cbs[i].onclick = function () {
+                var flag = true;
+                for (var j = 0; j < cbs.length; j++) {
+                    // flag = flag && cbs[j].checked;
+                    if (!cbs[j].checked) {
+                        flag = false;
+                        break;
+                    }
+                }
+                cbAll.checked = flag;
+            }
+        }
+
+
+        // 动态创建表格
+        var datas = [{
+            name: '赵小四',
+            subject: 'html',
+            score: 88
+        },
+        {
+            name: '钱多多',
+            subject: 'css',
+            score: 89
+        },
+        {
+            name: '孙悟空',
+            subject: 'javascript',
+            score: 90
+        }];
+
+        // 往tbody里创建行
+        var tbody = document.querySelector('.dynamic');
+        for (let i = 0; i < datas.length; i++) {
+            const row = datas[i];
+            // 创建tr
+            var tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            // 行内创建单元格td,数量为对象的属性个数, for遍历对象
+            for (var k in row) {  //遍历对象：k为属性名，row[k]为属性值
+                // 创建td
+                var td = document.createElement('td');
+                td.innerText = row[k];  //datas[i][k]
+                tr.appendChild(td);
+            }
+
+            var tdDel = document.createElement('td');
+            tdDel.innerHTML = "<a href='javascript:;'>删除</a>";
+            tr.appendChild(tdDel);
+        }
+
+        // 删除操作
+        var as = document.querySelectorAll('a');
+        for (let i = 0; i < as.length; i++) {
+            const a = as[i];
+            a.onclick = function () {
+                tbody.removeChild(this.parentNode.parentNode);
+            };
+        }
+    </script>
+</body>
+
+</html>

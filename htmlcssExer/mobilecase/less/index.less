@@ -1,0 +1,142 @@
+@import url(../less/base.less);
+
+// 变量
+@rootSize: 30rem;
+
+body {
+    background-color: #F0F0F0;
+}
+
+// 主体内容
+.main {
+    // 设计稿基于375px宽度设计
+    padding-bottom: (50 / @rootSize);
+
+
+    // banner
+    .banner {
+        height: (156/@rootSize);
+    }
+
+    // 活动标题
+    .title {
+        height: (40/@rootSize);
+        line-height: (40/@rootSize);
+        padding-left: (15/@rootSize);
+
+        h4 {
+            font-size: (14/@rootSize);
+            color: #3c3c3c;
+        }
+    }
+
+    .item {
+        margin-bottom: (10/@rootSize);
+
+        .pic {
+            position: relative;
+            // 定高是为了加小图标定位
+            height: (156/@rootSize);
+
+            img {
+                height: 100%;
+            }
+
+            // 收藏图标
+            i {
+                position: absolute;
+                top: (13/@rootSize);
+                right: (18/@rootSize);
+                font-size: (24/@rootSize);
+                color: #fff;
+            }
+
+            // 活动状态图标
+            .active {
+                position: absolute;
+                top: (-13/@rootSize);
+                left: (3/@rootSize);
+                width: (29/@rootSize);
+                height: (29/@rootSize);
+                background-image: url(../uploads/new.png);
+                background-size: cover;
+                background-repeat: no-repeat;
+
+                // 交集选择器
+                &.end {
+                    background-image: url(../uploads/end.png);
+                }
+            }
+
+        }
+
+        // 文字
+        .txt {
+            padding: (10/@rootSize) (15/@rootSize);
+            background-color: #fff;
+
+            .top {
+                display: flex;
+                justify-content: space-between;
+
+                h5 {
+                    flex: 1;
+                    font-size: (15/@rootSize);
+                    color: #3c3c3c;
+                }
+
+                p {
+                    margin-left: (5/@rootSize);
+                    width: (30/@rootSize);
+                    font-size: (15/@rootSize);
+                    color: orangered;
+                }
+            }
+
+            .bottom {
+                display: flex;
+                margin-top: (10/@rootSize);
+
+                p {
+                    margin-right: (15/@rootSize);
+                    font-size: (11/@rootSize);
+
+                    // 字体图标本身样式设置了字体大小，需要重置下
+                    i {
+                        font-size: (11/@rootSize);
+                    }
+
+                    color: #999;
+                }
+            }
+        }
+    }
+}
+
+// 底部工具栏
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: (50 / @rootSize);
+    background-color: #FECA49;
+    text-align: center;
+
+    a {
+        // text-decoration: none;
+        font-size: (11/@rootSize);
+        color: #d78b09;
+        .iconfont{
+            font-size: (24/@rootSize);
+        }
+
+        &.current {
+            color: #fff;
+        }
+    }
+}

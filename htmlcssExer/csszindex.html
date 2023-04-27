@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示层级</title>
+    <style>
+        .father {
+            position: relative;
+            width: 600px;
+            height: 500px;
+            background-color: #ccc;
+        }
+
+        .one {
+            position: absolute;
+            left: 20px;
+            top: 50px;
+            
+            z-index: 1;
+
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .two {
+            position: absolute;
+            left: 50px;
+            top: 100px;
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+
+        /* 
+            默认情况下，定位的盒子 后来者居上
+            z-index:整数，取值越大，显示顺序越靠上，默认值为0
+            注意：z-index必须配合定位才生效
+        */
+    </style>
+</head>
+
+<body>
+    <img src="../images/zindex.png" alt="">
+    <p></p>
+    <div class="father">
+        <div class="one">one</div>
+        <div class="two">two</div>
+    </div>
+</body>
+
+</html>

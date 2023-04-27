@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../lib/jQuery/jquery-3.6.4.min.js"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="https://jquery.cuishifeng.cn/">jQuery API手册</a>
+    <br><br>
+    <div>11</div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+
+    <ol>
+        <li>ol li</li>
+        <li>ol li</li>
+        <li>ol li</li>
+        <li>ol li</li>
+    </ol>
+    <script>
+        var mydiv = document.querySelector('div');
+        // 3种写法
+        // $(function () {
+        //     $('div').hide();
+        // })
+
+        // $(document).ready(function(){
+        //     $('div').hide();
+        // })
+
+        // jQuery(function () {
+        //     jQuery('div').hide();
+        // })
+
+        console.log(mydiv);
+        console.log($('div'));
+
+        // $(mydiv).hide();//转化为jQuery对象
+        // $('div')[0].style.display = 'block';  //转化为DOM对象
+        // $('div').get(0).style.display = 'block';  //转化为DOM对象
+
+        $('ul li').css('background',"skyblue");
+        $('ul li:first').css('color',"white");
+        $('ul li:eq(2)').css('font-size',"40px");
+
+         $('ol li:odd').css('background',"orange");
+
+    </script>
+</body>
+
+</html> 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>立即执行函数</title>
+</head>
+
+<body>
+    <script>
+        // 写法
+        // (function([形参]){})([实参])  或者 (function(){}());
+
+        (function (a, b) {
+            console.log(a, b);
+        })(1, 22);  //这里必须加分号
+
+        (function (a, b) {
+            console.log(a, b);
+        }(3, 4));
+
+        // 好处：独立创建了一个作用域，避免了命名冲突问题
+
+        console.log(window.devicePixelRatio);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css三大特性</title>
+    <style>
+        .inherit {
+            color: red;
+            height: 200px;
+            font-size: 12px;
+            background-color: #ccc;
+        }
+
+        .class1 {
+            color: green;
+            background-color: gray;
+        }
+
+        .class2 {
+            font-size: 30px;
+            color: blue;
+        }
+
+        div {
+            color: blueviolet;
+        }
+
+        #test {
+            color: orange !important;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>css特性：继承性</h3>
+    <img src="../images/继承性.png" alt="">
+    <!-- a标签的color会继承失败(可以单独设置样式) -->
+    <!-- h标签的font-size会继承失败 -->
+    <div class="inherit">
+        div内文字
+        <span>span 继承了div文字的样式，不能继承高度</span>
+        <a href="#">aa</a>
+        <h1>h1标题</h1>
+    </div>
+
+    <h3>css特性：层叠性</h3>
+    <div class="class1 class2">层叠</div>
+    <br>
+
+    <h3>优先级</h3>
+    <div class="class2" id="test" style="color: pink;">优先级测试</div>
+    <img src="../images/优先级.png" alt="">
+    <img src="../images/css权重叠加.png" alt="">
+
+</body>
+
+</html>

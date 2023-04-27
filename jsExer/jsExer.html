@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js基础语法笔记</title>
+    <!-- 2、内嵌式js -->
+    <script>
+        // BV1ux411d75J
+        
+        // alert("bbbb");
+        // 单行注释 ctrl + /
+        /* 多行注释 shift+alt+a 
+            vs code 可以修改快捷键*/
+
+        //输入框
+        // var age=prompt('请输入你的年龄'); 
+        // alert(age);
+        // console.log(age);
+        // console.log(typeof(age));
+        console.log('程序员看的');
+        var num = 10;
+        console.log(typeof (num));
+        num = 'pink';//js是动态语言，变量的数据类型是可以变化的
+        console.log(typeof (num));
+        //简单数值类型
+        // Number，Boolean，String，Undefined,null
+        // 八进制0~7，数字前加0，表示八进制
+        var num8 = 010;
+        console.log(num8);//输出十进制为8
+        //十六进制0~9 a~f, #ffff 数字前加0x，表示十六进制
+        var num16 = 0x1f;
+        console.log(num16);
+        console.log(Number.MAX_VALUE);
+        //数字型特殊值：Infinity 无穷大，大于任何值 ；Infinity 无穷小; NaN Not a Number,非数值
+        console.log(Number.MAX_VALUE * 2); //Infinity
+        console.log('test' - 100);//NaN
+
+        console.log(isNaN('a'));
+        console.log(isNaN(num16));
+
+        //字符串转义字符 \n 换行，\\斜杠,\'单引号,\"双引号,\t 缩进，\b 空格
+        var str = 'my name is ww';
+        console.log(str + ':' + str.length);
+
+        console.log('-----布尔型与数值型相加---------');
+        //布尔型与数值型相加，true为1，false为0
+        console.log(true + 1);//2 
+
+        var aa = undefined;//等同于 var aa;
+        console.log(aa + "pink");//undefinedpink
+        console.log(aa + 1);//NaN
+
+        var space = null;
+        console.log(space + "pink");//nullpink
+        console.log(space + 2);//2
+        console.log(typeof space);  //object
+
+        console.log('-----转为字符型---------');
+        //数据类型转换 
+        //转为字符型：toString(),String()强制转换；隐式转换：加号拼接字符串
+        // 转换为数字型：parseInt(string),parseFloat(string),Number()强制转换；隐式转换：- * /
+        // var age = prompt('请输入你的年龄');
+        // console.log(parseInt(age));
+        console.log(parseInt('3.14'));  //取整
+        console.log(parseInt('3.94'));  //取整
+        console.log(parseInt('120px'));  //去掉单位px
+        console.log(parseFloat('3.94'));  //取整
+        console.log('12' - 0);  //加号不行
+
+        console.log('-----转为布尔型---------');
+        // 转为布尔型 Boolean(),代表空、否定的值转为false：'',0,null,NaN,undefined
+        // 其余转为true
+        console.log(Boolean('pink'));  //true
+        console.log(Boolean(12));  //true
+        console.log(Boolean(null));  //false
+        console.log(Boolean(NaN));  //false
+
+        console.log('-----运算符---------');
+        var n = 1, m = 1;
+        var a = n++; //后置：先返回值，再自加1
+        var b = ++m; //前置: 先自加1，再返回值 
+        console.log(a + "," + b);
+        console.log(n + ',' + m);
+
+        var e = 10;
+        var f = e++ + ++e;
+        console.log(f);
+
+        console.log('-----比较运算符---------');
+        //比较运算符：> < >= <= == != === !==
+        //=== 值和数据类型都一致；==只要求值，字符串会转换为数字型
+        console.log(18 == '18');//true 
+        console.log(18 === '18');//false
+        console.log(18 !== '18');//true 
+
+        console.log('-----逻辑运算符---------');
+        // 逻辑运算符: && || !
+        // 多个表达式参与逻辑运算
+        // 短路运算(逻辑中断)：左边表达式可以确定结果时，就不再继续运算右边的表达式
+        // 逻辑与：表达式1为真，则返回表达式2，表达式1为假，则返回表达式1
+        console.log(123 && 456);//456
+        console.log(0 && 456 && 'aa');//0
+        console.log(456 && 0 && 'aa');//0
+        console.log(456 && 123 && 'aa');//aa
+        // 逻辑或：表达式1为真，则返回表达式1，表达式1为假，则返回表达式2
+        console.log(123 || 456);//123
+        console.log(0 || 456 || 'aa');//456
+        console.log('' || 0 || 'aa');//aa
+        console.log(null || 123 || 'aa');//123
+
+        var num = 0;
+        console.log(345 || num++);//345
+        console.log(num);//0
+
+        // 赋值运算符: = , += ,-= , *=, /=,   %=
+        /* 运算符优先级：
+             （）
+             一元运算符： ! ++ --
+             算数运算符：先* / 后 + -
+             关系运算符：> >= < <=
+             相等运算符：== != === !==
+             逻辑运算符：先&& 后||
+             赋值运算符：=
+             逗号运算符：,
+        */
+        console.log('-----三元表达式---------');
+        // 三元表达式： 条件表达式? 表达式1: 表达式2
+        var time = 9;
+        var result = time < 10 ? '0' + time : time;
+        console.log(result);
+
+        console.log('-----分支流程控制语句---------');
+        //case的值需要 全等 匹配,case如果没有break结尾，则继续执行下一个case
+        var key = 1;
+        switch (key) {
+            case 1:
+                console.log(1);
+            // break;
+            case 2:
+                console.log(2);
+                break;
+            case 3:
+                console.log(3);
+                break;
+            default:
+                break;
+        }
+
+        console.log('-----循环控制语句---------');
+        var str = "";
+        for (let i = 0; i < 10; i++) {
+            // for (var j = i; j < 10; j++) {  //或者
+            for (var j = 10; j > i; j--) {
+                str += '★';
+            }
+            str += '\n';
+        }
+        console.log(str);
+
+        str = "";
+        for (i = 0; i < 10; i++) {
+            for (j = 0; j <= i; j++) {
+                str += '★';
+            }
+            str += '\n';
+        }
+        console.log(str);
+
+        console.log('-----九九乘法表---------');
+        str = "";
+        for (i = 1; i <= 9; i++) {
+            for (j = 1; j <= i; j++) {
+                str += j + 'x' + i + '=' + i * j + '\t';
+            }
+            str += '\n';
+        }
+        console.log(str);
+
+        console.log('-----数组---------');
+        //创建数组的两种方式
+        var arr0 = new Array();
+        var arr1 = [];
+
+        var arr2 = ['a', 2, true, '测试'];
+        console.log(arr2,);
+        console.log(arr2[4]);//undefined
+
+        var array = [2, 345, 3, 5, 25, 356, 63, 67, 222, 86, 93939, 7, 36];
+        var max = array[0];
+        var n;
+        for (var index = 0; index < array.length; index++) {
+            if (array[index] > max) {
+                max = array[index];
+                n = index;
+            }
+        }
+        console.log(max, array.length, n);
+
+        //修改数组length扩容，新增数组元素
+        var arr = ['a', 'x', 'b'];
+        console.log(arr.length);
+        arr.length = 5;
+        console.log(arr.length);
+        console.log(arr);
+        arr[3] = '777';
+        console.log(arr);
+
+        console.log('-----冒泡排序---------');
+        console.log(array);
+
+        for (var i = 0; i < array.length - 1; i++) {
+            for (var j = 0; j < array.length - i - 1; j++) {
+                if (array[j] < array[j + 1]) {
+                    var temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+        console.log(array);
+
+        console.log('-----函数---------');
+        // 两种定义方式 
+        // 1、 函数关键字定义（命名函数）
+        // function fun(){
+        // }
+        // fun(); // 调用
+
+        // 2、 函数表达式(匿名函数)
+        // var 变量名=function(){}  
+        // var fun=function(){
+        // }
+        // fun();// 调用
+        // 此方式，函数没有名字，fun为变量名,变量里存的是值，而函数表达式里面存的是函数
+
+        var ff = function (aru) {
+            return aru.length;
+        }
+        var f = ff('ff函数表达式');
+        console.log(f);
+
+        //return只能返回一个值，为最后一个值
+        function fun(a, b) {
+            return a, b;
+        }
+        console.log(fun(1, 2));// 2
+        // 可用数组返回多个值
+        // 函数没有return，则返回 undefined
+        function funArr(n1, n2) {
+            return [n1 + n2, n1 - n2, n1 * n2, n1 / n2];
+        }
+        console.log(funArr(1, 2));
+
+        // 不确定有多少参数传递的时候，可以用 arguments 来获取。
+        // 所有函数都内置了一个arguments 对象，存储了传递的所有实参
+        // arguments 是伪数组，不是真正意义上的数组
+        // 有length，按照索引方式存储；但没有真正数组的一些方法：pop() push()等
+        function fun1() {
+            var sum = 0;
+            for (var i = 0; i < arguments.length; i++) {
+                sum += arguments[i];
+            }
+            return [sum, arguments.length];
+        }
+        console.log(fun1(1, 2, 3, 6));
+        console.log(fun1(15, 6, 7, 88));
+
+        // 翻转数组内容
+        function reverse(arr) {
+            var newArr = [];
+            for (var i = arr.length - 1; i >= 0; i--) {
+                newArr[newArr.length] = arr[i];
+            }
+            return newArr;
+        }
+        console.log(reverse([3, 6, 'a', ' bbbb', 309, 44]));
+
+        // 闰年
+        function isRunYear(num) {
+            var flag = false;
+            if (num % 4 == 0 && num % 100 != 0 || num % 400 == 0) {
+                flag = true;
+            }
+            return flag;
+        }
+
+        // 列出区间闰年
+        function listRunYear(begin, end) {
+            var arr = [];
+            for (i = begin; i <= end; i++) {
+                if (isRunYear(i)) {
+                    arr[arr.length] = i;
+                }
+            }
+            return arr;
+        }
+        console.log(listRunYear(1900, 2022));
+
+        // 作用域：全局作用域、局部(函数)作用域
+        // 作用域链：链式，就近原则
+
+        // 1、js引擎运行分两步：预解析、代码执行
+        // (1)、预解析：会把js里所有var 和 function 提升到当前作用域的最前面
+        // (2)、代码执行 按照代码书写顺序从上往下执行
+        // 2、预解析：分为变量预解析（变量提升）和函数预解析（函数提升）
+        // (1)、变量提升：提升变量声明，不提升赋值操作
+        // (2)、函数提升：提升函数声明，不调用函数
+
+        console.log('-----预解析---------');
+
+        f1();
+        console.log(a3);
+        console.log(a2);
+        // console.log(a1);
+
+        function f1() {
+            var a1 = a2 = a3 = 9;
+            console.log(a1);
+            console.log(a2);
+            console.log(a3);
+        }
+
+        // 相当于以下代码
+        /*  function f1() {
+             var a1 = 9; a2 = 9; a3 = 9; // 注意：函数中不加var直接赋值的变量为全局变量
+             var a1 = 9, a2 = 9, a3 = 9; // 用逗号分割，等同于都用了var
+             console.log(a1);//9
+             console.log(a2);//9
+             console.log(a3);//9
+         }
+ 
+         f1();
+         console.log(a3); //9
+         console.log(a2); //9
+         console.log(a1); //会报错，未定义变量a1
+         */
+
+        console.log('-----对象object---------');
+        // var obj = {}; //创建一个空的对象
+        var obj = {
+            uname: 'Sandy', //健：值 逗号分隔
+            age: 18,
+            sex: '女',
+            sayHi: function () {  //匿名方法
+                console.log('hi');
+            }
+        }
+        // 调用对象属性的两种方法
+        console.log(obj.uname);
+        console.log(obj['age']); // 区分大小写
+        // 调用对象的方法
+        obj.sayHi();
+
+        obj.filename = 'aaa';//追加属性
+        console.log(obj.filename);
+
+        var obj1 = new Object(); //创建一个空的对象
+        obj1.username = 'xyz';
+        obj1.sayHi = function () {
+            console.log('hihi');
+        }
+        console.log(obj1.uname);//undefined
+        obj1.sayHi();
+
+        // 用构造函数创建对象
+        /* function 构造函数名() {
+            this.属性 = 值;
+            this.方法 = function(){
+
+            }
+        }
+        new 构造函数名(); */
+
+        // 构造函数名 首字母大写
+        // 构造函数不需要return就可以返回结果
+        function Star(uname, age, sex) {
+            this.name = uname;
+            this.age = age;
+            this.sex = sex;
+            this.sing = function (song) {
+                console.log(song);
+            }
+        }
+
+        // new 关键字执行过程：
+        // 1、new 构造函数在内存中创建一个空的对象
+        // 2、this 指向刚才创建的空对象
+        // 3、执行构造函数里面的代码，给这个空对象添加属性和方法
+        // 4、返回这个对象
+        var star1 = new Star('andy', 20, '男');
+        console.log(typeof (star1)); //object
+        console.log(star1.name);
+        star1.sing('大雨');
+
+        console.log('-----for...in循环---------');
+        for (var k in star1) {
+            console.log(k); // 属性名
+            console.log(star1[k]); // 属性值
+        }
+
+        console.log('-----内置对象---------');
+        // 查文档MDN：https://developer.mozilla.org/zh-CN/
+
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值
+        }
+
+        console.log(getRandomIntInclusive(10, 20));
+
+        console.log('-----Date---------');
+
+        var date = new Date();
+        var date1 = new Date(2022, 10, 25);
+        console.log(date);
+        console.log(date1.toLocaleDateString('zh-CN'));// 2022-11-25
+        console.log(date1.getMonth());//getMonth() 为0-11，使用需加1
+        console.log(date1.getDay());//周日为0，周一为1...周六为6
+
+        // Date 距离1970-01-01的毫秒数(时间戳)
+        // 1、 valueOf()、getTime()
+        console.log(date.valueOf());
+        console.log(date.getTime());
+        // 2、+new Date()
+        console.log(+new Date());
+        // 3、H5新增的
+        console.log(Date.now());
+
+        function countDown(time) {
+            var nows = +new Date();
+            var times = +new Date(time);
+            var seconds = (times - nows) / 1000;
+            var s = parseInt(seconds % 60); // 秒数
+            var m = parseInt(seconds / 60 % 60); // 分数
+            var h = parseInt(seconds / 60 / 60 % 24);//小时数
+            var d = parseInt(seconds / 60 / 60 / 24);//天数
+
+            s = twoCharTime(s);
+            m = twoCharTime(m);
+            h = twoCharTime(h);
+            d = twoCharTime(d);
+            return d + '天' + h + '小时' + m + '分' + s + '秒';
+        }
+
+        // 2位数显示时间
+        function twoCharTime(m) {
+            m = m < 10 ? '0' + m : m;
+            return m;
+        }
+        console.log(countDown('2022-10-26 00:00:00'));
+
+        console.log('-----检测是否为数组---------');
+        // 检测是否为数组
+        // 1、instanceof 运算符
+        // 2、Array.isArray(), 优于instanceof，能检测iframes，H5新增，ie9以上版本才支持
+        var array1 = [];
+        var obj = {};
+        console.log(array1 instanceof Array);
+        console.log(Array.isArray(obj));
+
+        console.log('-----添加删除数组元素---------');
+        // 添加删除数组元素
+        // 1、 push()：数组末尾添加元素，push()返回结果为数组添加后的长度
+        array1 = [1, 2, 3];
+        console.log(array1);
+        console.log(array1.push(78, 'pink'));
+        console.log(array1);
+        // 2、unshift():在数据前添加元素，返回结果为数组添加后的长度
+        console.log(array1.unshift(99, 'xx'));
+        console.log(array1);
+        // 3、pop()删除最后一个元素，返回结果为删除的元素，一次只能删除一个
+        console.log(array1.pop());
+        console.log(array1);
+        // 4、shift()删除第一个元素，返回结果为删除的元素，一次只能删除一个
+        console.log(array1.shift());
+        console.log(array1);
+
+        // 翻转数组
+        array1.reverse();
+        console.log(array1);
+
+        console.log('-----数组排序---------');
+        var array2 = [1, 12, 5, 3, 7, 229, 5, 22, 2];
+        console.log(array2);
+        array2.sort();
+        console.log(array2);
+        array2.sort(function (a, b) {
+            // return a - b; //升序排列
+            return b - a; //降序排列
+        });
+        console.log(array2);
+
+        // indexOf() 返回元素在数组中第一个索引值，无返回-1
+        // lastIndexOf() 返回元素在数组中最后一个索引值，无返回-1
+        console.log(array2.indexOf(5));
+        console.log(array2.lastIndexOf(5));
+
+        console.log('-----字符串对象---------');
+
+        // 数组转为字符串
+        // 1、toString()，逗号分割
+        console.log(array2.toString());
+        // 2、join(分隔符)
+        console.log(array2.join('&'));
+
+        // concat()连接多个数组，不影响元数组
+        console.log(array1.concat(array2));
+        // slice(begin, end)数组截取，不影响元数组
+        console.log(array2.slice(3, 6));
+        console.log(array2);
+        // splice(开始,个数) 删除元素，影响原数组
+        console.log(array2.splice(2, 3));
+        console.log(array2);
+
+        var str1 = 'abcdefg,bcdefg,bljdbj';
+        console.log(str1.indexOf('b', 2));//8：从第2位开始查找
+        var i = str1.indexOf('b');
+        while (i != -1) {
+            console.log(i);
+            i = str1.indexOf('b', i + 1);
+        }
+
+        // 根据位置返回字符
+        // 1、charAt(index) 返回字符
+        console.log(str1.charAt(3));
+        // 2、charCodeAt(index) 返回字符的ASCII码，判断用户按下的键
+        // 3、str[index]  H5,IE8+支持，和charAt()等效
+
+        // 判断对象是否有该属性 对象[属性名]
+        console.log('-----判断出现次数最多的字符，并统计次数---------');
+        var str2 = "flajlkbliafdjslc";
+        var obj2 = {};
+        for (var i = 0; i < str2.length; i++) {
+            var c = str2[i];
+            if (!obj2[c]) {
+                obj2[c] = 1;
+            }
+            else {
+                obj2[c] += 1;
+            }
+        }
+        console.log(str2 + "," + str2.length);
+        console.log(obj2);
+
+        var max2 = 0, key2;
+        for (var k in obj2) {
+            if (obj2[k] > max2) {
+                max2 = obj2[k];
+                key2 = k;
+            }
+        }
+        console.log(key2 + "," + max2);
+    
+        console.log('-----字符串操作---------');
+
+        // 字符串操作
+        // concat()连接多个字符串，等效于+
+        // substr(start,length)
+        // slice(start,end) ，不含end  
+        // substring(start,end),索引不能为负值
+        console.log(str2.slice(1,3));
+        // replace(old,new) 替换字符，只替换第一个出现的old
+        // split('分隔符') 字符串转为数组
+        // toUpperCase(),toLowerCase() 转换大小写
+
+        console.log('-----数据类型内存分配---------');
+
+        // 简单类型（值类型），存储变量时存储的是值本身
+        //  string,number,boolean,undefined,null.(但 null的typeOf为 object)
+        // 复杂类型（引用类型），存储时变量中存储的仅仅是地址（引用）
+        // 通过new关键字创建的对象，Object,Array,Date等
+
+        // 堆和栈：（操作系统） 
+        // 简单类型存在栈里
+        // 复杂类型，首先在栈里存放地址，十六进制，这个地址指向堆里的数据。一般由程序员释放，若程序员不释放，由垃圾回收机制回收
+        // 注意：简单类型传参时，是把变量在栈空间里的值复制给形参，方法内如何对形参修改，都不会影响实参变量
+        // 注意：复杂类型传参时，其实是把变量在栈空间里保存的堆地址赋值给形参，形参和实参保存的同一个堆地址，所以操作的是同一个对象
+    </script>
+    <!-- 3、外部js -->
+    <script src="../assets/js/my.js"></script>
+</head>
+
+<body>
+    <!-- 1、行内式js -->
+    <input type="button" value="xyz" onclick="alert('aaa')">
+</body>
+
+</html> 

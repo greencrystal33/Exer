@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动适配-rem</title>
+    <style>
+        div {
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        /* html {
+            font-size: 20px;
+        } */
+
+        .txt {
+            font-size: 16px;
+        }
+
+        .demo {
+            width: 8rem;
+            height: 5rem;
+            background-color: pink;
+        }
+
+        .red {
+            color: red;
+        }
+
+        /* 使用媒体查询，根据不同的视口宽度，设置不同的根字号 */
+        /* @media (width:375px) {
+            html {
+                font-size: 37.5px;
+            }
+        }
+
+        @media (width:320px) {
+            html {
+                font-size: 32px;
+            }
+        }
+
+        @media (width:414px) {
+            html {
+                font-size: 41.4px;
+            }
+        }
+
+        @media (width:360px) {
+            html {
+                font-size: 36px;
+            }
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="demo"></div>
+
+    <div class="txt">
+        <h3>移动适配的两种解决方案</h3>
+        <ul>
+            <li>rem</li>
+            <li>vw/vh</li>
+        </ul>
+
+        <h4>rem单位</h4>
+        <p>相对单位,是相对于HTML标签的字号计算结果</p>
+        <p class="red">1rem = 1HTML字号大小 (根字号)</p>
+        <p>所以用rem必须保证设置HTML字号</p>
+
+        <h4>添加媒体查询</h4>
+        <p>目标: 能够使用媒体查询设置差异化CSS样式</p>
+        <p>媒体查询能够检测视口的宽度, 然后编写差异化的CSS样式</p>
+        <p class="red">写法: @media (媒体特性){ 选择器{CSS属性}}</p>
+        <p>目前rem布局方案中,将网页等分成10份,HTML标签的字号为<span class="red">视口宽度的1/10</span></p>
+
+        <h4>计算rem单位的尺寸</h4>
+        <p>rem单位的尺寸 = px单位数值/基准根字号</p>
+
+        <h4 class="red">flexible</h4>
+        <p>flexible.js手淘开发的一个适配移动端的js框架</p>
+        <p>手淘框架的核心原理就是根据制不同的width给网页中html根节点设置不同的font-size</p>
+        <br>
+        <a href="https://www.jianshu.com/p/04efb4a1d2f8">flexible.js 移动端自适应方案</a>
+        <br>
+        <a href="https://github.com/amfe/lib-flexible">github地址</a>
+        <br>
+        <a href="https://github.com/amfe/article/issues/17">官方文档地址</a>
+    </div>
+
+    <!-- <script src="../assets/js/"></script> -->
+    <!-- 阿里的CDN -->
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+</body>
+
+</html>

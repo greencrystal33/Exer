@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC端网页特效: 元素偏移量offset系列</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .father {
+            /* position: relative; */
+            /* width: 200px; */
+            height: 200px;
+            background-color: pink;
+            margin: 100px;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            margin-left: 45px;
+            padding: 20px;
+            border: 10px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <img src="../images/offset.png" alt="">
+    <img src="../images/offset&style.png" alt="">
+    <script>
+        // 动态获取元素的位置(偏移)、大小
+        var father = document.querySelector('.father');
+        var son = document.querySelector('.son');
+        console.log('father top left:', father.offsetTop, father.offsetLeft);
+        console.log('son.offsetLeft', son.offsetLeft); //father没有定位返回145：等于son的margin-left + father的margin-left,=45+100，即对于body的偏移。father加上定位返回45
+        console.log(son.offsetWidth);
+        console.log(son.offsetParent);//father没有定位返回上一级，父级没有定位则返回body
+        console.log(son.parentNode);//不管father有没有定位
+
+        window.addEventListener('resize', function () {
+            console.log(father.offsetWidth, father.offsetHeight);
+        });
+
+        // 案例：获取鼠标在盒子son内的坐标
+        son.addEventListener('mousemove', function (e) {
+            // console.log('e.page x y:', e.pageX, e.pageY);  //鼠标在页面的坐标
+            // console.log('son x y:', this.offsetLeft, this.offsetTop);  //son对于body的偏移（father无定位时）
+            var x = e.pageX - this.offsetLeft;
+            var y = e.pageY - this.offsetTop;
+            this.innerHTML = 'mouse in son box x:' + x + ',y:' + y;
+        })
+    </script>
+</body>
+
+</html>

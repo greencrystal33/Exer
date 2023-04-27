@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM元素选择</title>
+
+</head>
+
+<body>
+    <div id="divTime">2022-10-27</div>
+    <div>2022-10-28</div>
+    <ul>
+        <li>a1</li>
+        <li>a2</li>
+        <li>a3</li>
+    </ul>
+    <ol>
+        <li>b1</li>
+        <li>b2</li>
+        <li>b3</li>
+    </ol>
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+
+    <img src="..\images\20221027.png" alt="" title="test">
+    <script> //需要放到标签下面
+        // BV1k4411w7sV
+        // WEB APIs: 浏览器提供的一套操作浏览器功能和页面元素的API(DOM和B  OM)
+        // MDN文档： https://developer.mozilla.org/zh-CN/docs/Web/API
+
+        // DOM：Document Object Model 文档对象模型，W3C组织推荐的处理可扩展标记语言（HTML或XML）的标准接口程序
+
+        console.log('-----------获取DOM元素----------');
+        // 获取DOM元素
+        // 1、根据ID获取 getElementById()
+        var e = document.getElementById('divTime');
+        console.log(e);
+        var element = document.getElementById('img1');
+        console.dir(element); // 打印返回的元素对象，方便查看属性、方法
+        // 2、根据标签名 getElementsByTagName(),返回伪数组
+        var es = document.getElementsByTagName('ul');
+        console.log(es);
+        // console.log(es[0]);
+        var ol = document.getElementsByTagName('ol');
+        console.log(ol);
+        var lis = ol[0].getElementsByTagName('li');
+        console.log(lis);
+
+        // 3、根据类名 H5新增
+        var box = document.getElementsByClassName('box');
+        console.log(box);
+        // 4、query选择器 H5新增：返回指定选择器的第一个元素对象
+        var firstbox = document.querySelector('.box'); //.代表class
+        console.log(firstbox);
+        var divTime = document.querySelector('#divTime'); //#代表id
+        console.log(divTime);
+        var li = document.querySelector('li');
+        console.log(li);
+        // querySelectorAll返回所有元素对象集合
+        var boxs = document.querySelectorAll('.box');
+        console.log(boxs);
+
+        // 获取body
+        var body = document.body;
+        console.log(body);
+
+        // 获取html 元素
+        var htmlEle = document.documentElement;
+        console.log(htmlEle);
+
+
+    </script>
+</body>
+
+</html>

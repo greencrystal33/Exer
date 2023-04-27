@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改样式属性</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        li {
+            list-style-type: none;
+            display: block;
+        }
+
+        .box {
+            width: 250px;
+            margin: 100px auto;
+        }
+
+        .box li {
+            /* display: block; */
+            float: left;
+            margin: 15px;
+            width: 24px;
+            height: 24px;
+            background-color: pink;
+            background: url(../images/taobao.png) no-repeat;
+            background-position: 0 0;
+        }
+
+        .change {
+            background-color: purple;
+            width: 300px;
+            height: 300px;
+            color: white;
+            font-size: 35;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>hide</button>
+    <div class="div">测试文本</div>
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <script>
+        var div = document.querySelector('div');
+        div.onclick = function () {
+            // this.style.backgroundColor = 'purple';
+            // this.style.width = '300px';
+            this.className = 'change';//修改样式较多可以用类来修改
+            this.className = 'div change';//保留原先的类
+        } //js修改style，产生行内样式，css权重比较高
+
+        var btn = document.querySelector('button');
+        btn.onclick = function () {
+            if (div.style.display == 'none') {
+                div.style.display = 'block'; //display:block 显示元素
+                this.innerText = 'hide';
+            } else {
+                div.style.display = 'none'; //display:none 隐藏元素
+                this.innerText = 'show';
+            }
+        }
+
+        // 精灵图
+        var lis = document.querySelectorAll('li');
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].style.backgroundPositionY = -44 * i + 'px';
+        }
+
+
+    </script>
+</body>
+
+</html>

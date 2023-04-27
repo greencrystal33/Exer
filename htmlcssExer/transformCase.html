@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>转换案例</title>
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../lib/iconfont/iconfont.css">
+    <style>
+        .box {
+            margin: 50px auto;
+            width: 80%;
+            height: auto;
+            /* background-color: pink; */
+            overflow: hidden;
+        }
+
+        .box li{
+            float: left;
+            margin-right: 15px;
+            margin-bottom: 15px;
+            width: 300px;
+            height: auto;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .box p {
+            padding: 10px;
+            text-align: center;
+            color: #3b3b3b;
+        }
+
+        .pic {
+            position: relative;
+
+        }
+
+        .pic::after {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(6);
+            content: '';
+            width: 58px;
+            height: 58px;
+            /* background-color: red; */
+            background-image: url(../uploads/play2.png);
+            background-size: contain;
+
+            transition: all 0.5s;
+            opacity: 0;
+        }
+
+        /* 考虑到产品可能有多个，放入li可以复用 */
+        .box li:hover .pic::after {
+            /* translate也必须有，否则变大了位置不对 */
+            transform: translate(-50%, -50%) scale(1);
+            /* 透明度有过渡效果 */
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <div class="pic">
+                    <img src="../uploads/item001.webp" alt="">
+                    <!-- 用伪元素方式添加播放按钮 -->
+                </div>
+                <p>宣传片火热上市宣传片火热上市宣传片火热上市宣传片火热上市...</p>
+            </li>
+            <li>
+                <div class="pic">
+                    <img src="../uploads/item001.webp" alt="">
+                    <!-- 用伪元素方式添加播放按钮 -->
+                </div>
+                <p>宣传片火热上市宣传片火热上市宣传片火热上市宣传片火热上市...</p>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <link rel="stylesheet" href="../assets/css/animation.css">
+    <style>
+        p {
+            margin: 5px;
+        }
+
+        p span {
+            color: red;
+        }
+
+        div {
+            margin: 30px auto;
+        }
+
+        .box {
+            margin: 0;
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+            /* linear匀速，默认值 */
+            /* animation: change1 1s linear; */
+            /* 分步动画 */
+            /* animation: change1 1s steps(3); */
+            /* 重复3次 */
+            /* animation: change1 1s 1s 3; */
+            /* 无限循环infinite */
+            /* animation: change1 1s 1s infinite; */
+            /* 反向 alternate*/
+            animation: change1 2s 1s infinite alternate;
+
+            /* 执行完毕时状态，需要去掉无限循环和反向 */
+            /* 默认值backwards，停留在最初的状态 */
+            /* animation: change1 1s 1s backwards; */
+            /* forwards，停留在结束的状态 */
+            /* animation: change1 2s 1s forwards; */
+
+        }
+
+        .box:hover {
+            animation-play-state: paused;
+        }
+
+        /* 定义动画 */
+        @keyframes change1 {
+            from {
+                width: 200px;
+            }
+
+            to {
+                width: 600px;
+            }
+        }
+
+        /* 百分比是动画总时长的占比 */
+        @keyframes change2 {
+            0% {
+                width: 200px;
+            }
+
+            50% {
+                width: 500px;
+                height: 300px;
+            }
+
+            100% {
+                width: 800px;
+                height: 500px;
+            }
+
+        }
+
+
+        .multi {
+            margin: 0;
+            width: 100px;
+            height: 100px;
+            /* border: 1px solid #000; */
+            /* background-image: url(../uploads/circle-back.png);
+            background-repeat: no-repeat;
+            background-size: contain; */
+            animation: run 1s 1s 1 linear alternate;
+
+        }
+
+        .multi img {
+            width: 100px;
+            animation: circle 1s 1s 1 linear alternate;
+        }
+
+        @keyframes circle {
+
+            /* 如果动画的开始状态和盒子的默认样式相同，可以省略开始状态 */
+            /* from {
+                transform: rotateZ(0);
+            } */
+            to {
+                transform: rotateZ(360deg);
+
+            }
+        }
+
+        @keyframes run {
+            /* from {
+                transform: translateX(0);
+            } */
+
+            to {
+                transform: translateX(800px);
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .lamp {
+            margin: 0 auto;
+            width: 500px;
+            height: 100px;
+            /* background-color: pink; */
+            border: 1px solid #000;
+            overflow: hidden;
+        }
+
+        .lamp ul {
+            display: flex;
+            padding: 0;
+            margin: 0;
+            width: 1100px;
+            height: auto;
+            animation: lamp 2s linear infinite;
+        }
+
+        .lamp li {
+            /* float: left; */
+            padding: 0;
+            margin: 0;
+            width: 100px;
+            height: 100px;
+
+            list-style: none;
+        }
+
+        .lamp img {
+            height: 100px;
+
+        }
+
+        /* 动画暂停 */
+        .lamp:hover ul {
+            animation-play-state: paused;
+        }
+
+        @keyframes lamp {
+            to {
+                transform: translateX(-600px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>animation</h1>
+    <div>
+        <p>过渡：两个状态的变化过程</p>
+        <p>动画：多个状态间变化，动画过程可控(重复播放、最终画面、是否暂停)</p>
+        <p>动画本质是快速切换大量图片时在人脑中形成的具有连续性的画面</p>
+        <p>构成动画的最小单元: 帧或动画帧</p>
+        <h3>实现步骤：</h3>
+        <p>1.定义动画 @keyframes 动画名称{}</p>
+        <!--          
+            @keyframes 动画名称{
+                from {}
+                to {}
+            } 
+         -->
+        <!-- 
+            @keyframes 动画名称{
+                0% {}
+                10% {}
+                15% {}
+                100% {}
+            } 
+        -->
+        <p>2.使用动画</p>
+        <p>animation: 动画名称 动画花费时长;</p>
+        <div class="box"></div>
+
+        <p>animation: <span> 动画名称 动画花费时长</span> 速度曲线 延迟时间 重复次数 动画方向 执行完毕时状态;</p>
+        <p>动画名称 动画花费时长 必须赋值</p>
+        <p>取值不分先后顺序，时间值有两个，则第一个为时长，第2个为延迟时间</p>
+    </div>
+
+    <hr>
+    <h3>animation相关属性</h3>
+    <div>
+        <img src="../images/animation.png" alt="">
+    </div>
+
+    <hr>
+    <h3>steps 逐帧动画</h3>
+    <div>
+        <p>默认：补间动画</p>
+        <p>animation-timing-function: steps(数字);</p>
+        <p>逐帧动画配合精灵图使用</p>
+    </div>
+
+    <hr>
+    <h3>多组动画</h3>
+    <div>
+        <p>
+            animation:<br>
+            动画1,<br>
+            动画2,<br>
+            动画N<br>
+            ;
+        </p>
+        <br>
+
+    </div>
+
+    <hr>
+    <!-- 旋转和位移都是用的transform，所以不能使用多组动画，改为分成两个元素分别加动画 -->
+    <!-- 如精灵图用background-position 切换位置，和transform位移，可用同一个元素多组动画 -->
+    <div class="multi">
+        <img src="../uploads/circle-back.png" alt="">
+    </div>
+
+    <hr>
+    <h3>走马灯宣传图案例</h3>
+    <div class="lamp">
+        <ul>
+            <li><img src="../uploads/money.png" alt=""></li>
+            <li><img src="../uploads/car.png" alt=""></li>
+            <li><img src="../uploads/logo-cool2.png" alt=""></li>
+            <li><img src="../uploads/circle-back.png" alt=""></li>
+            <li><img src="../uploads/circle-forward.png" alt=""></li>
+            <li><img src="../uploads/like.png" alt=""></li>
+
+            <!-- div盒子显示5个，需要把前5个li重复，防止最后留白 -->
+            <!-- 或用js实现 -->
+            <li><img src="../uploads/money.png" alt=""></li>
+            <li><img src="../uploads/car.png" alt=""></li>
+            <li><img src="../uploads/logo-cool2.png" alt=""></li>
+            <li><img src="../uploads/circle-back.png" alt=""></li>
+            <li><img src="../uploads/circle-forward.png" alt=""></li>
+        </ul>
+    </div>
+
+    
+</body>
+
+</html>

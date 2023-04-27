@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>location对象</title>
+</head>
+
+<body>
+    <button>click</button>
+    <div></div>
+    <img src="../images/locatefun.png" alt="">
+    <script>
+
+        // 常用属性： href/search，可在控制台直接打location查看
+
+        // 案例：5秒钟后自动跳转新页面
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        btn.addEventListener('click', function () {
+            // location.href = "http://127.0.0.1:8080"
+
+            setInterval(function () {
+                if (timer == 0) {
+                    location.href = "http://127.0.0.1:8080"
+                }
+                div.innerHTML = '将在' + timer + '秒后跳转到首面';
+                timer--;
+            }, 1000);
+        })
+        var timer = 5;
+
+    </script>
+</body>
+
+</html>

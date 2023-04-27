@@ -1,0 +1,201 @@
+@import url(./base.less);
+
+@vw: 3.75vw;
+@colorM: #fb7299;
+
+@keyframes move {
+    to {
+        transform: translateX((-120/@vw));
+    }
+}
+
+// 头部固定
+header {
+    position: fixed;
+    // width: 100%; 都行
+    width: 100vw;
+    height: (84/@vw);
+    // 背景白色+z-index保证拖动视频区域时，header不被遮挡
+    background-color: #fff;
+    z-index: 1;
+
+    .top {
+        display: flex;
+        justify-content: space-between;
+        padding-left: (18/@vw);
+        padding-right: (12/@vw);
+        height: (44/@vw);
+
+        .Navbar_logo {
+            color: @colorM;
+            font-size: 7.46667vmin;
+        }
+
+        .right {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            // background-color: skyblue;
+
+            a {
+                margin-right: (20/@vw);
+            }
+
+            a:last-child {
+                margin-right: 0;
+            }
+
+            .ic_search_tab {
+                width: (22/@vw);
+                height: (22/@vw);
+                color: #ccc;
+                font-size: (22/@vw);
+            }
+
+            img {
+                width: (24/@vw);
+                height: (24/@vw);
+                border-radius: 50%;
+                background-image: url(../uploads/loading.png);
+            }
+
+            .download {
+                width: (72/@vw);
+                height: (24/@vw);
+                background-color: @colorM;
+                border-radius: (4/@vw);
+                color: #fff;
+                font-size: (14/@vw);
+                text-align: center;
+                line-height: (24/@vw);
+            }
+        }
+    }
+
+    .bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: (40/@vw);
+        border-bottom: 1px solid #eee;
+
+        .tab {
+            width: (300/@vw);
+            // overflow: hidden;
+            transition: all 2s;
+
+            &:hover {
+                // animation: move 1s infinite alternate;
+                transform: translateX((-120/@vw));
+
+            }
+
+            ul {
+                display: flex;
+                width: (420/@vw);
+
+                li {
+                    padding: 0 (16/@vw);
+
+                    a {
+                        display: block;
+                        height: (38/@vw);
+
+                        line-height: (38/@vw);
+                        font-size: (14/@vw);
+
+                        &.active {
+                            color: @colorM;
+                            border-bottom: 2px solid @colorM;
+                        }
+                    }
+                }
+            }
+        }
+
+        .more {
+            a {
+                display: inline-block;
+                // 激活区域
+                height: (40/@vw);
+                width: (40/@vw);
+                line-height: (40/@vw);
+                text-align: center;
+                // background-color: pink;
+                color: #aaa;
+
+                .general_pulldown_s {
+                    font-size: (20/@vw);
+                }
+            }
+        }
+    }
+}
+
+.video_content {
+    padding: (84/@vw) (5/@vw ) 0;
+
+    .video_list {
+        display: flex;
+        // 多行显示
+        flex-wrap: wrap;
+
+        a {
+            width: 50%;
+            padding: (8/@vw) (5/@vw);
+            font-size: (12/@vw);
+
+            .pic {
+                position: relative;
+
+                .count {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+
+                    display: flex;
+                    justify-content: space-between;
+
+                    padding: (5/@vw) (6/@vw);
+
+                    // 定位脱标，需要设置宽度
+                    width: 100%;
+                    color: #fff;
+                    font-size: (12/@vw);
+                    background-image: linear-gradient(0deg, rgba(0, 0, 0, .85), transparent);
+
+                    i {
+                        vertical-align: middle;
+                    }
+
+
+                }
+            }
+
+            .txt {
+                margin-top: (5/@vw);
+            }
+        }
+    }
+}
+
+.launch {
+    position: fixed;
+    left: 0;
+    bottom: (30/@vw);
+    width: 100%;
+    height: (36/@vw);
+    background-color: @colorM;
+    border-radius:  (18/@vw);
+    .openapp {
+        margin: 0  (12/@vw);
+        text-align: center;
+        line-height:  (36/@vw);
+        color: #fff;
+        font-size: (14/@vw);
+        .iconfont{
+            margin-right: (10/@vw);
+            font-size: (16/@vw);
+        }
+    }
+}

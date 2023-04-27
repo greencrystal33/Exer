@@ -1,0 +1,53 @@
+// 手动导出当前文件的路径，必须为文件的第一行。
+// out: ./xyz/x.css
+// out: ./abc/
+// 禁止导出，在第一行添加
+// out: false
+
+// 修改自动导出css的路径：VSCode->设置->扩展->Easy Less Configuration->settings.json
+// "less.compile" 内增加： "out": "../css/"
+
+// 导入,可以省略后缀名
+@import './test001.less';
+
+
+/* 注意对照生产的css文件理解 */
+// 单行注释不生成到css文件中
+.father {
+    background-color: @red;
+
+    /* 加,减,乘直接书写表达式 */
+    width: 100+50px;
+    height: 5*32px;
+
+    /* 除法需要添加小括号或者. */
+    // height: 100 ./ 37.5rem;
+    width: (68/37.5rem);
+
+    // 嵌套写法，快速生成后代选择器
+    .son {
+
+        width: 50px;
+        height: 50px;
+        background-color: pink;
+
+        // &不生成后代选择器，表示当前选择器，通常配合伪类或伪元素使用
+        &:hover {
+            background-color: green;
+        }
+    }
+
+    &:hover {
+        background-color: orange;
+    }
+}
+
+// 使用less变量设置属性值
+// 定义变量 @变量名:值;
+@red: #e64226;
+
+// 使用变量 css属性:@变量名
+.box {
+    color: @red;
+    background-color: @red;
+}

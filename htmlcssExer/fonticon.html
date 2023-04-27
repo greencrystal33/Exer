@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字体图标</title>
+    <link rel="stylesheet" href="../lib/iconfont/iconfont.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <style>
+        p span {
+            color: red;
+        }
+
+        .icon-favorite {
+            font-size: 100px;
+            color: pink;
+        }
+
+        .icon-arrow-left {
+            width: 100px;
+            height: 30px;
+            background-color: #ccc;
+            color: white;
+        }
+
+        .icon-gouwuche{
+            color: #f40;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <!--  -->
+    <p>实现简介的图标效果</p>
+    <p>字体图标展示的是图标，本质是字体</p>
+    <p>使用：<a href="https://www.iconfont.cn/">iconfont.cn</a></p>
+    <p>官方图标库->购物车，添加至项目，下载到本地</p>
+    <p>引入字体图标样式表 link :iconfont.css</p>
+    <p>类名需要两个，一个<span>iconfont</span>(固定)，一个具体图标的，具体在网站或下载压缩包里的demo_index.html查看</p>
+    <hr>
+    <!-- 应用 -->
+    <span class="iconfont icon-favorite"></span>
+    <div class="iconfont icon-arrow-left"></div>
+    <br>
+    <!-- 购物车 -->
+    <div>
+        <ul>
+            <li><a href="#">
+                <span class="iconfont icon-gouwuche"></span>
+                <span>购物车</span>
+                <span class="iconfont icon-arrow-down"></span>
+            </a></li>
+        </ul>
+    </div>
+</body>
+
+</html>
