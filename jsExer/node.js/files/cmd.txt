@@ -1,0 +1,35 @@
+初始化目录
+git init
+git config --list
+git status
+
+暂存
+git add .
+跳过暂存 git commit -a -m "直接提交"
+
+git branch  查看
+git branch new  新建 (尽量在master上新建）
+git checkout branchname 切换
+git checkout -b  new 新建并切换
+
+合并：
+切换到master，合并分支login到master上
+git merge login
+
+删除分支
+git branch -d 分支名
+
+上传分支
+git push -u 远程仓库别名 本地分支名称[:远程分支名称]
+
+查看远程
+git remote show origin
+
+跟踪分支
+git checkout 远程分支名
+
+获取远程更新
+git pull
+
+删除远程分支
+git push 远程仓库名 --delete 远程分支名
